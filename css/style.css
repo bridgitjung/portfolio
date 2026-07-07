@@ -565,7 +565,7 @@ main {
 .feature-row.flip { grid-template-columns: 1fr minmax(0, 320px); }
 .feature-row.flip img { order: 2; }
 .feature-row img {
-  max-height: 250px;
+  max-height: 400px;
   max-width: 100%;
   width: auto;
   height: auto;
@@ -645,3 +645,9 @@ main {
 @media (max-width: 860px) {
   .sticker-lg { width: clamp(85px, 30%, 130px); }
 }
+
+/* Wobbuffet - Pokemon - https://www.cursors-4u.com/cursor/wobbuffet-pokemon */
+* {
+  cursor: url('https://cdn.cursors-4u.net/previews/wobbuffet-pokemon-3495bd0f-32.webp') 32 32, auto !important;
+}
+/* End [www.Cursors-4U.com](https://www.Cursors-4U.com) Code */
