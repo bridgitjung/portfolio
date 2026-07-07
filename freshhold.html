@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshHold — bridgit jung</title>
+  <meta name="description" content="FreshHold: a smart container system that manages and keeps food fresh. Product design case study by Bridgit Jung." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+
+  <aside class="rail">
+    <a class="rail-logo" href="index.html" aria-label="Home">
+      <img src="assets/logo.webp" alt="Bridgit Jung logo" />
+    </a>
+    <nav class="rail-nav" aria-label="Main">
+      <a href="index.html">home</a>
+      <a href="art.html">art</a>
+      <a href="about.html">about</a>
+    </nav>
+    <div class="rail-footer">
+      <a href="https://drive.google.com/file/d/10fBjhiht86s-UkkT23U8Jum-NYtAkbTh/view" target="_blank" rel="noopener">resume</a>
+      <a href="https://www.linkedin.com/in/bridgit-jung" target="_blank" rel="noopener">linkedin</a>
+      <a href="index.html#contact">contact</a>
+    </div>
+  </aside>
+
+  <main class="cs">
+    <a class="back-link" href="index.html">← back to work</a>
+
+    <div class="cs-cover">
+      <img src="assets/freshhold-cover.webp" alt="FreshHold smart container with a touchscreen lid next to the companion app showing a fridge inventory" />
+    </div>
+
+    <header class="cs-header">
+      <p class="cs-kicker">FreshHold:</p>
+      <h1>Managing and keeping food fresh</h1>
+      <ul class="tags">
+        <li>Product Design</li>
+        <li>IoT</li>
+      </ul>
+      <ul class="cs-meta">
+        <li><strong>Role:</strong> Product and Hardware Designer</li>
+        <li><strong>Date:</strong> September 2025</li>
+        <li><strong>Duration:</strong> 4 months</li>
+      </ul>
+    </header>
+
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p class="lede accent">Freshhold tracks your food, so you don't have to. Don't be stressed; we'll keep it fresh!</p>
+      <p><strong>Freshhold</strong> is a smart container system designed to reduce food waste, plan meals efficiently, and help users track groceries in their fridge. Using embedded sensors, Freshhold tracks food freshness, sends timely alerts, and even protects your groceries during power outages.</p>
+      <img class="fig" src="https://framerusercontent.com/images/kyxX89rJh351XdwHwehhZBWwc.png?width=2212" alt="A multicolored lightbox displays the FreshHold container with vibrant yellow, red, and blue lighting" loading="lazy" />
+      <p>Our research revealed that managing food at home quietly consumes more time and mental energy than people want to give it. While users aim to reduce waste and simplify cooking, they forget what they have, lose track of expiration dates, and feel too overwhelmed to stay on top of it all. The issue isn't motivation—it's that daily life leaves little room to think about the fridge.</p>
+      <p>People don't want another chore. They want something that handles the background work and only intervenes when necessary. Freshhold fills that gap: automatically tracking freshness, sending timely alerts, and enabling effortless food decisions. It reduces stress, prevents waste, and makes meal planning manageable.</p>
+    </section>
+
+    <section id="key-insights">
+      <h2>Key Insights</h2>
+
+      <h3>Survey</h3>
+      <p>We surveyed 70+ young adults about managing food at home.</p>
+      <div class="card">
+        <span class="card-label">Insights</span>
+        <ul>
+          <li>50% of participants plan meals around what is expiring.</li>
+          <li>65% of participants mentioned time and energy as barriers to cooking.</li>
+        </ul>
+      </div>
+      <p>Survey results with young adults showed that the biggest barriers to managing food are decision fatigue and the burden of daily routines.</p>
+      <div class="card">
+        <span class="card-label">Opportunity</span>
+        <p>Reduce decision-making through a solution that informs the user about their food and groceries.</p>
+      </div>
+
+      <h3>Diary Study</h3>
+      <p>We conducted our diary study with 4 young adults with their own homes. This occurred across 4 consecutive days, and participants responded to prompts on a Google Form at morning and night. Each diary entry covered things such as:</p>
+      <ul>
+        <li>What and when they ate</li>
+        <li>What tools or reminders they used</li>
+        <li>Any barriers that got in their way</li>
+      </ul>
+      <div class="card">
+        <span class="card-label">Insights</span>
+        <ul>
+          <li>60% of participants often skipped meals or forgot small tasks when tired.</li>
+          <li>65% used tools or reminders in daily food decisions.</li>
+        </ul>
+      </div>
+      <p>Diary entries showed that participants struggled to keep track of what food they had, what was still in good condition, and what actions to take to preserve their food.</p>
+      <div class="card">
+        <span class="card-label">Opportunity</span>
+        <p>Reduce cognitive load through a solution that helps users check on food and take action when necessary.</p>
+      </div>
+    </section>
+
+    <section id="user-enactment">
+      <h2>User Enactment Scenarios</h2>
+      <p>We tested 5 various scenarios with 11 participants to evaluate different automation concepts to help people manage food. We tested these concepts through low-fidelity paper prototypes.</p>
+      <img class="fig" src="https://framerusercontent.com/images/hdQiJiaHERDXYsNu5dm2giXy8.png?width=1040" alt="Hexagonal takeout container paper prototype with a labeled lid and drawn grapes inside" loading="lazy" />
+
+      <h3>Scenarios</h3>
+      <p>Our user comes back from work and wants to make dinner.</p>
+      <img class="fig" src="https://framerusercontent.com/images/XEo5ljq5FZwQD0cUyjQMB68Bc.png?width=1600" alt="Six-panel comic: Sam gets home tired, checks the app, sees soup and broccoli are about to go bad, and happily plans dinner around them" loading="lazy" />
+      <p>The power goes out and the fridge loses power.</p>
+      <img class="fig" src="https://framerusercontent.com/images/i3wZFrM3MaMqX77TeMaa3WpWJVM.png?width=1600" alt="Six-panel comic: Abby gets a power outage notification, chooses to freeze her food, and the containers use stored energy to freeze it" loading="lazy" />
+      <p>Our user is traveling and out of town.</p>
+      <img class="fig" src="https://framerusercontent.com/images/FhukiraxKNoPitqi9PAQsA1hh0.png?width=1600" alt="Six-panel comic: a traveling user marks expiring food as shared, their roommate gets notified, and the container labels expired food on return" loading="lazy" />
+
+      <div class="card">
+        <span class="card-label">Insights</span>
+        <ul>
+          <li>People care about the freshness of their food, safety, and food waste.</li>
+          <li>For automated solutions, users value: clear, labeled states; simple wording; and at-a-glance status.</li>
+          <li>Overall, users appreciate automation that reduces user effort and decision-making.</li>
+          <li>When it comes to information overview and away-from-home control, users prefer to use a phone.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="card-label">Opportunity</span>
+        <p>A smart container accompanied with a mobile app can best streamline decisions and actions: an LED on the container for at-a-glance prioritization, and a phone interface for a quick overview and away-from-home control.</p>
+      </div>
+    </section>
+
+    <section id="final-concept">
+      <h2>Final System Concept</h2>
+      <p>After testing several automation concepts, we refined our smart container and companion app to the following key features.</p>
+      <div class="feature-grid">
+        <div class="card">
+          <span class="card-label">Automatic Food Recognition</span>
+          <p>When users put food in their smart container, the container uses an integrated camera to automatically recognize the item and log its purchase date, expiration date, and more. This reduces friction and allows users to effortlessly track their fridge items without manually inputting each one.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">Dynamic Expiration Date</span>
+          <p>The screen on the smart container displays how many days are left until that item expires, allowing users to make an informed plan on which foods to eat. Additionally, users can sort their containers by expiration date in the mobile app, allowing them to prioritize eating older food first.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">Color-Coded Indicator</span>
+          <p>An LED light on the container glows yellow when the food is going to expire in a few days, and glows red when it has passed its expiration date. When users open their fridge, they can quickly glance and see which food to consume without needing to open the app.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">Emergency Freezing</span>
+          <p>When the power goes out, users can quickly take action through the app. Even if they're away from home, they can freeze their food containers, and the containers will automatically defrost when the power is back on.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="video-demo">
+      <h2>Video Demo</h2>
+      <div class="embed" style="aspect-ratio: 16 / 9;">
+        <iframe src="https://www.youtube.com/embed/nP7nSUREJi8?iv_load_policy=3&rel=0&modestbranding=1&playsinline=1" title="FreshHold video demo" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section id="prototype">
+      <h2>Prototype</h2>
+
+      <h3>Key feature 1: Connecting Containers through Bluetooth</h3>
+      <ul>
+        <li><strong>Real-time syncing</strong> ensures fresher information without manual input.</li>
+        <li>Multiple containers connect simultaneously to build a full "<strong>smart inventory</strong>" of your fridge.</li>
+        <li>Designed for <strong>effortless onboarding</strong>! Just open the container and it appears in the app.</li>
+      </ul>
+      <img class="fig" src="https://framerusercontent.com/images/lKggId57WWJXtMwTx8tJCsf0EY.png?width=1600" alt="A container with produce in it and a screen on the lid showing a Bluetooth symbol" loading="lazy" />
+
+      <h3>Key feature 2: Automatic Food Recognition</h3>
+      <ul>
+        <li>A compact <strong>internal camera</strong> detects newly stored food when the lid closes.</li>
+        <li><strong>Computer vision</strong> identifies food type and portion size to <strong>auto-log items</strong> in the app.</li>
+        <li>Users no longer need to type, scan, or take photos, the container does the work.</li>
+        <li>Users can manually edit the descriptions for additional accuracy and customization.</li>
+      </ul>
+      <img class="fig" src="https://framerusercontent.com/images/inxt1IVDhIUPJyDDYgQlf1s2s.png?width=1600" alt="An open container showing a small camera attached to the bottom of the lid" loading="lazy" />
+
+      <h3>Key feature 3: Consistent Status Updates</h3>
+      <ul>
+        <li>Automatically recalculates <strong>expiration estimates</strong> using <strong>time + temperature data</strong>.</li>
+        <li>Sends <strong>alerts</strong> when temperature becomes <strong>unsafe</strong> (fridge power outage, door open).</li>
+        <li><strong>Auto-updates serving estimates</strong> as portions decrease.</li>
+        <li><strong>LED indicators and push notifications</strong> communicate changes without overwhelming users.</li>
+      </ul>
+      <img class="fig" src="https://framerusercontent.com/images/0Vtwk4LdyGTq7Hv5rpsMxrbmxwY.png?width=630" style="max-width: 340px;" alt="App screenshots showing notifications about expiring grapes, shared noodles, expired-food reminders, and a new container" loading="lazy" />
+
+      <h3>Figma Prototype</h3>
+      <div class="embed">
+        <iframe src="https://embed.figma.com/proto/5jJblfRRpaz2aSpbPpkdJ7/SI-612-App-Prototypes?page-id=45%3A302&node-id=86-663&viewport=466%2C-292%2C0.35&scaling=scale-down&content-scaling=fixed&starting-point-node-id=86%3A663&show-proto-sidebar=1&embed-host=share" title="FreshHold Figma prototype" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <h2>Reflection</h2>
+      <p>Our solution earned the honor of "Most Innovative Product!" This was my first time designing beyond a screen for a physical product. Despite the complexity and multiple working parts of our solution, we aimed to design something that integrates into our user's life and simplifies it.</p>
+      <p>This project really opened so many possibilities for interactions and the broader implications that a product can have. For example, a classmate suggested that the freezing function could be beneficial for users who may not be able to afford a fridge. As a designer, I always aim to consider how design can make a wider impact.</p>
+      <p>Thanks to Elissa, Mida, and Hannah for being the most creative and driven groupmates!</p>
+      <div class="fig-row side-by-side">
+        <img src="https://framerusercontent.com/images/o0Q5r0VF34zrmDcsaDwbMLPRQZc.jpg?width=1600" alt="App prototype on a TV screen next to a cardboard fridge holding the FreshHold container, with a Most Innovative Product certificate" loading="lazy" />
+        <img src="https://framerusercontent.com/images/ANr426y8Ie8y6CptRu0iO1Hgefc.png?width=1200" alt="Four team members standing around the FreshHold product holding an award certificate" loading="lazy" />
+      </div>
+    </section>
+
+    <p class="cs-outro">Thank you for reading! If you have any questions about this project, feel free to email me at <a class="accent" href="mailto:bridgit@umich.edu">bridgit@umich.edu</a>! <span class="sparkle">✶⋆.˚</span></p>
+
+    <footer class="site-footer">
+      <p>made with ♡ by bridgit jung © 2026</p>
+    </footer>
+  </main>
+
+  <script src="js/lightbox.js"></script>
+  <script src="js/backtotop.js"></script>
+  <script src="js/toc.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bridgit jung ✶⋆.˚</title>
+  <meta name="description" content="Bridgit Jung is a product designer and artist. Currently a UX Designer at Synopsys." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+
+  <!-- Left rail -->
+  <aside class="rail">
+    <a class="rail-logo" href="#top" aria-label="Home">
+      <img src="assets/logo.webp" alt="Bridgit Jung logo" />
+    </a>
+    <nav class="rail-nav" aria-label="Main">
+      <a href="#top" class="active">home</a>
+      <a href="art.html">art</a>
+      <a href="about.html">about</a>
+    </nav>
+    <div class="rail-footer">
+      <a href="https://drive.google.com/file/d/10fBjhiht86s-UkkT23U8Jum-NYtAkbTh/view" target="_blank" rel="noopener">resume</a>
+      <a href="https://www.linkedin.com/in/bridgit-jung" target="_blank" rel="noopener">linkedin</a>
+      <a href="#contact" id="contact-link">contact</a>
+    </div>
+  </aside>
+
+  <main id="top">
+    <!-- Hero -->
+    <header class="hero">
+      <h1 class="hero-intro">
+        <span class="accent semibold">bridgit jung</span> is a product designer who<br />
+        makes life a little easier, and a lot more fun&nbsp;<span class="sparkle">✶⋆.˚</span>
+      </h1>
+      <p class="hero-meta">
+        currently a <span class="accent">UX Designer</span> at <a class="accent" href="https://www.synopsys.com/" target="_blank" rel="noopener">Synopsys↗︎</a><br />
+        <span class="accent">MS/BS</span> in <span class="accent">UX Design</span> from the <a class="accent" href="https://www.si.umich.edu/" target="_blank" rel="noopener">University of Michigan↗︎</a>
+      </p>
+    </header>
+
+    <!-- Projects -->
+    <section class="projects" aria-label="Selected work">
+
+      <article class="project">
+        <div class="project-figure">
+        <a class="project-media" href="freshhold.html">
+          <img src="assets/freshhold-cover.webp" alt="FreshHold smart container with a touchscreen display" loading="lazy" />
+        </a>
+        <img class="sticker sticker-br sticker-lg" style="--rot: 8deg" src="assets/sticker-freshhold.webp" alt="Most Innovative Product — Pervasive Interaction Design award badge" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <h2><a class="accent" href="freshhold.html">FreshHold</a></h2>
+          <p>Managing and keeping food fresh</p>
+          <ul class="tags">
+            <li>Product Design</li>
+            <li>IoT</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-figure">
+        <a class="project-media" href="jstor.html">
+          <img src="assets/jstor-cover.webp" alt="JSTOR Daily redesign shown on a laptop" loading="lazy" />
+        </a>
+        <img class="sticker sticker-bl" style="--rot: -8deg" src="assets/sticker-jstor.webp" alt="JSTOR ornamental J logo" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <h2><a class="accent" href="jstor.html">JSTOR DAILY</a></h2>
+          <p>Optimizing content discoverability for intellectual readers</p>
+          <ul class="tags">
+            <li>Client</li>
+            <li>UX Consulting</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-figure">
+        <a class="project-media" href="inkedbook.html">
+          <img src="assets/inkedbook-cover.webp" alt="Inkedbook app screens for tattoo artist discovery and booking" loading="lazy" />
+        </a>
+        <img class="sticker sticker-br" style="--rot: 6.5deg" src="assets/sticker-inkedbook.webp" alt="Inkedbook framed logo sticker" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <h2><a class="accent" href="inkedbook.html">Inkedbook</a></h2>
+          <p>Streamlining tattoo artist discovery and scheduling</p>
+          <ul class="tags">
+            <li>Product Design</li>
+            <li>Branding</li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-label="Contact">
+      <h2 class="contact-title accent">say hello&nbsp;<span class="sparkle">✶⋆.˚</span></h2>
+      <p class="contact-sub">Have a project, a question, or just want to chat? Leave a note below or email <a class="accent" href="mailto:bridgit@umich.edu">bridgit@umich.edu</a>.</p>
+      <form id="contact-form" novalidate>
+        <div class="field-row">
+          <label>
+            name
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            email
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+        </div>
+        <label>
+          message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" id="contact-submit">send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <footer class="site-footer">
+      <p>made with ♡ by bridgit jung © 2026</p>
+    </footer>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/backtotop.js"></script>
+</body>
+</html>
