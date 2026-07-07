@@ -565,10 +565,13 @@ main {
 .feature-row.flip { grid-template-columns: 1fr minmax(0, 320px); }
 .feature-row.flip img { order: 2; }
 .feature-row img {
-  width: 100%;
+  max-height: 250px;
+  max-width: 100%;
+  width: auto;
   height: auto;
   border-radius: 8px;
   display: block;
+  margin-inline: auto;
   background: #1d1d1d;
 }
 .feature-row .card-label { font-size: 20px; }
@@ -576,6 +579,26 @@ main {
 
 /* ---- side-by-side photos at every viewport ---- */
 .fig-row.side-by-side { grid-template-columns: 1fr 1fr; }
+
+/* ---- view other projects (case study footer) ---- */
+.other-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.other-card { display: block; text-decoration: none; color: inherit; }
+.other-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  background: #1d1d1d;
+}
+.other-card span {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--accent);
+}
+.other-card:hover span { text-decoration: underline; }
 
 /* ---- back to top button ---- */
 .back-to-top {
