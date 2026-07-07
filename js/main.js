@@ -1,20 +1,3 @@
-// ---- scroll reveal ----
-const revealTargets = document.querySelectorAll(".project, .contact");
-revealTargets.forEach((el) => el.classList.add("reveal"));
-
-const io = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in");
-        io.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12 }
-);
-revealTargets.forEach((el) => io.observe(el));
-
 // ---- contact form -> Supabase ----
 const form = document.getElementById("contact-form");
 const statusEl = document.getElementById("form-status");
