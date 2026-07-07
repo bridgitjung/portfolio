@@ -29,7 +29,7 @@ form.addEventListener("submit", async (e) => {
   if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
     // Fallback while the database isn't connected yet
     window.location.href =
-      "mailto:bridgit@umich.edu?subject=" +
+      "mailto:bridgit.jung@gmail.com?subject=" +
       encodeURIComponent("Hello from " + name) +
       "&body=" +
       encodeURIComponent(message + "\n\n— " + name + " (" + email + ")");
@@ -57,7 +57,7 @@ form.addEventListener("submit", async (e) => {
     setStatus("Message sent — thank you! ✶⋆.˚", "ok");
   } catch (err) {
     console.error(err);
-    setStatus("Message couldn't send. Email bridgit@umich.edu instead.", "err");
+    setStatus("Message couldn't send. Email bridgit.jung@gmail.com instead.", "err");
   } finally {
     submitBtn.disabled = false;
   }
