@@ -644,8 +644,10 @@ main {
 
 /* ---- larger sticker variant (FreshHold award badge) ---- */
 .sticker-lg { width: clamp(110px, 28%, 190px); }
+.sticker-br.sticker-lg { right: -64px; bottom: -56px; }
 @media (max-width: 860px) {
   .sticker-lg { width: clamp(85px, 30%, 130px); }
+  .sticker-br.sticker-lg { right: -22px; bottom: -30px; }
 }
 
 /* Wobbuffet - Pokemon - https://www.cursors-4u.com/cursor/wobbuffet-pokemon */
