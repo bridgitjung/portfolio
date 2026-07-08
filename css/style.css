@@ -136,7 +136,8 @@ main {
 
 .project-media:hover { transform: scale(1.03); }
 
-.project-media img {
+.project-media img,
+.project-media video {
   display: block;
   width: 100%;
   aspect-ratio: 674 / 479;
@@ -297,7 +298,8 @@ main {
   margin-bottom: 40px;
   background: #1d1d1d;
 }
-.cs-cover img { display: block; width: 100%; height: auto; }
+.cs-cover img,
+.cs-cover video { display: block; width: 100%; height: auto; }
 
 .cs-header h1 {
   font-family: var(--mono);
