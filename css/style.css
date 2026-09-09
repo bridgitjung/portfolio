@@ -431,10 +431,9 @@ main {
 .back-link:hover { color: var(--accent); }
 
 /* ---- art page ---- */
-.art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
-.art-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; background: #1d1d1d; }
+.art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; align-items: center; }
+.art-grid img { width: 100%; height: auto; border-radius: 8px; display: block; background: #1d1d1d; }
 .art-grid.wide { grid-template-columns: 1fr 1fr; }
-.art-grid.wide img { aspect-ratio: 16/10; }
 
 /* ---- about page ---- */
 .exp-list { list-style: none; margin: 0 0 12px; padding: 0; }
@@ -452,7 +451,7 @@ main {
 @media (max-width: 860px) {
   .cs h2 { font-size: 24px; }
   .fig-row, .fig-row.thirds, .feature-grid { grid-template-columns: 1fr; }
-  .art-grid { grid-template-columns: 1fr 1fr; }
+  .art-grid { gap: 10px; }
 }
 
 /* ---- project cover stickers ---- */
