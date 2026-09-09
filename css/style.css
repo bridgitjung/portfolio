@@ -5,7 +5,7 @@
   --accent: #ecff91;
   --green: #008c72;
   --mono: "Geist Mono", ui-monospace, monospace;
-  --sans: "Geist", system-ui, sans-serif;
+  --sans: "DM Sans", system-ui, sans-serif;
   --rail-w: 200px;
 }
 
@@ -31,7 +31,7 @@ body {
   color: var(--text);
   font-family: var(--sans);
   font-size: 20px;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.015em;
   line-height: 1.4;
 }
 
@@ -392,7 +392,6 @@ main {
 /* insight / opportunity / feature cards */
 .card {
   border: 1px solid #2c2c2c;
-  border-left: 3px solid var(--accent);
   border-radius: 8px;
   padding: 20px 24px;
   margin: 20px 0;
@@ -408,7 +407,7 @@ main {
 .card p:last-child, .card ul:last-child { margin-bottom: 0; }
 
 .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
-.feature-grid .card { margin: 0; border-left-color: #2c2c2c; }
+.feature-grid .card { margin: 0; }
 
 .embed {
   position: relative;
