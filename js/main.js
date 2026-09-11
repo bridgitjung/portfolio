@@ -1,3 +1,14 @@
+// ---- stickers: pop on tap (touch devices have no hover) ----
+document.querySelectorAll(".sticker").forEach((sticker) => {
+  sticker.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse") return;
+    sticker.classList.remove("pop");
+    void sticker.offsetWidth; // restart the animation on repeat taps
+    sticker.classList.add("pop");
+  });
+  sticker.addEventListener("animationend", () => sticker.classList.remove("pop"));
+});
+
 // ---- contact form -> Supabase ----
 const form = document.getElementById("contact-form");
 const statusEl = document.getElementById("form-status");

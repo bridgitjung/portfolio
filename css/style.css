@@ -15,7 +15,7 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { transition: none !important; transform: none !important; opacity: 1 !important; }
-  body { animation: none !important; }
+  body, .hero-intro, .hero-meta, .sticker.pop { animation: none !important; }
 }
 
 /* ---- whole-page fade-in on load ---- */
@@ -116,6 +116,14 @@ main {
   margin: 0;
   line-height: 1.5;
 }
+
+/* ---- homepage hero slide-up on load ---- */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-intro, .hero-meta { animation: slide-up 0.8s ease both; }
+.hero-meta { animation-delay: 0.15s; }
 
 /* ---- projects ---- */
 .projects {
@@ -466,7 +474,17 @@ main {
   transition: transform 0.25s ease;
   cursor: default;
 }
-.sticker:hover { transform: rotate(var(--rot, 0deg)) scale(1.12); }
+/* hover only where it's real — on touch, :hover sticks after a tap */
+@media (hover: hover) {
+  .sticker:hover { transform: rotate(var(--rot, 0deg)) scale(1.12); }
+}
+/* tap on touch devices: pop up, then settle back */
+@keyframes sticker-pop {
+  0% { transform: rotate(var(--rot, 0deg)) scale(1); }
+  40% { transform: rotate(var(--rot, 0deg)) scale(1.15); }
+  100% { transform: rotate(var(--rot, 0deg)) scale(1); }
+}
+.sticker.pop { animation: sticker-pop 0.4s ease; }
 
 .sticker-br { right: -34px; bottom: -30px; }
 .sticker-bl { left: -34px; bottom: -26px; }
