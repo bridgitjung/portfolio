@@ -1,12 +1,13 @@
-// ---- scroll reveal ----
+// ---- slide-up reveal ----
+// Top-level content blocks slide up: those in view on load cascade in page
+// order, and the rest reveal as they scroll into view.
 const revealTargets = document.querySelectorAll(
-  ".project, .contact, main.cs > section, main.cs > .fig"
+  ".hero-intro, .hero-meta, .project, .contact, main > .site-footer, main.cs > *"
 );
 revealTargets.forEach((el) => el.classList.add("reveal"));
 
-// On the homepage, items already in view at load continue the hero's
-// slide-up cascade (hero lines start at 0s and 0.15s) instead of all at once.
-const loadCascadeStart = document.querySelector(".hero") ? 0.3 : null;
+const CASCADE_STEP = 0.15; // seconds between blocks revealed on load
+const CASCADE_MAX = 0.6; // cap so tall screens don't wait long for the last block
 let firstBatch = true;
 
 const revealObserver = new IntersectionObserver(
@@ -14,8 +15,9 @@ const revealObserver = new IntersectionObserver(
     let step = 0;
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        if (firstBatch && loadCascadeStart !== null) {
-          entry.target.style.transitionDelay = loadCascadeStart + step++ * 0.15 + "s";
+        if (firstBatch) {
+          entry.target.style.transitionDelay =
+            Math.min(step++ * CASCADE_STEP, CASCADE_MAX) + "s";
         }
         entry.target.classList.add("in");
         revealObserver.unobserve(entry.target);
