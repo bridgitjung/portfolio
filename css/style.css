@@ -257,12 +257,17 @@ main {
 }
 
 /* ---- slide-up reveal (on load and on scroll) ---- */
+/* No transition here: the script adds .reveal after first paint, so a
+   transition would animate content backwards out of view before it slides in. */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.reveal.in { opacity: 1; transform: none; }
 
 /* ---- responsive ---- */
 @media (max-width: 1180px) {
