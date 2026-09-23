@@ -158,15 +158,15 @@
     });
 
     // The tilted plane leaves the 500-tall stage mostly empty: the tiles sit
-    // between y=100 and y=422. On phones show just that band plus a margin, so
-    // the hero costs less height without making the tiles any smaller.
-    const BAND_MID = 261;
+    // between y=100 and y=422. On phones show just that band, tight above and
+    // a little looser below, so the tiles start sooner after the hero text.
+    const BAND_TOP = 100, BAND_BOT = 422, PAD_TOP = 18, PAD_BOT = 39;
     function fit() {
       const w = Math.min(500, root.parentElement.clientWidth);
       scale = w / 500;
       const narrow = window.innerWidth < 860;
-      const boxH = narrow ? 400 : 500;
-      const top = narrow ? Math.round(BAND_MID - boxH / 2) : 0;
+      const boxH = narrow ? BAND_BOT - BAND_TOP + PAD_TOP + PAD_BOT : 500;
+      const top = narrow ? BAND_TOP - PAD_TOP : 0;
       root.style.width = w + "px";
       wrap.style.width = w + "px";
       wrap.style.height = boxH * scale + "px";

@@ -379,6 +379,11 @@ main {
   .tile-info-btn { flex-basis: 100%; text-align: left; padding-left: 0; }
 }
 
+/* phones: close the gap between the hero copy and the tiles */
+@media (max-width: 860px) {
+  .hero { gap: 16px; }
+}
+
 /* tile band at the bottom of every page */
 .tile-floor { position: relative; margin-top: 24px; height: 280px; overflow: hidden; }
 .floor-stage {
