@@ -157,13 +157,20 @@
       paint(-1);
     });
 
+    // The tilted plane leaves the 500-tall stage mostly empty: the tiles sit
+    // between y=100 and y=422. On phones show just that band plus a margin, so
+    // the hero costs less height without making the tiles any smaller.
+    const BAND_MID = 261;
     function fit() {
       const w = Math.min(500, root.parentElement.clientWidth);
       scale = w / 500;
+      const narrow = window.innerWidth < 860;
+      const boxH = narrow ? 400 : 500;
+      const top = narrow ? Math.round(BAND_MID - boxH / 2) : 0;
       root.style.width = w + "px";
       wrap.style.width = w + "px";
-      wrap.style.height = 500 * scale + "px";
-      stage.style.transform = "scale(" + scale + ")";
+      wrap.style.height = boxH * scale + "px";
+      stage.style.transform = "scale(" + scale + ") translateY(" + -top + "px)";
     }
     window.addEventListener("resize", fit);
     fit();
@@ -206,25 +213,36 @@
         const b = el("button", "floor-btn", { type: "button", tabindex: "-1" });
         faces.push(buildTile(b, ALL[order[k]], 8));
         plane.appendChild(b);
+        // Keep the pointer captured and hit-test coordinates rather than relying
+        // on hover or on which tile gets pointerup: a finger fires no hover as it
+        // moves, and the browser reports the release on the tile it started on.
         b.addEventListener("pointerdown", (e) => {
-          if (b.hasPointerCapture && b.hasPointerCapture(e.pointerId)) b.releasePointerCapture(e.pointerId);
+          try { b.setPointerCapture(e.pointerId); } catch (err) {} // capture is a bonus, not required
           drag = k;
           over = k;
           paint();
         });
-        b.addEventListener("pointerenter", () => {
+        b.addEventListener("pointermove", (e) => {
           if (drag === null) return;
-          over = k;
+          const t = tileAt(e.clientX, e.clientY);
+          if (t === over) return;
+          over = t;
           paint();
         });
-        b.addEventListener("pointerup", () => {
+        b.addEventListener("pointerup", (e) => {
           if (drag === null) return;
-          if (drag === k) {
-            rot[k] += 90;
-          } else {
-            [order[drag], order[k]] = [order[k], order[drag]];
-            [rot[drag], rot[k]] = [rot[k], rot[drag]];
+          const t = tileAt(e.clientX, e.clientY);
+          if (t === drag) {
+            rot[drag] += 90;
+          } else if (t !== null) {
+            [order[drag], order[t]] = [order[t], order[drag]];
+            [rot[drag], rot[t]] = [rot[t], rot[drag]];
           }
+          drag = null;
+          over = null;
+          paint();
+        });
+        b.addEventListener("pointercancel", () => {
           drag = null;
           over = null;
           paint();
@@ -233,6 +251,14 @@
       });
       fit();
       paint();
+    }
+
+    // which tile is under these screen coords (the dragged tile stays put)
+    function tileAt(x, y) {
+      const n = document.elementFromPoint(x, y);
+      const hit = n && n.closest ? n.closest(".floor-btn") : null;
+      const i = hit ? btns.indexOf(hit) : -1;
+      return i < 0 ? null : i;
     }
 
     function paint() {
