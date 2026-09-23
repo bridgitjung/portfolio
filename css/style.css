@@ -549,7 +549,51 @@ main.cs { max-width: var(--page); }
 .art-grid img { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--card); }
 .art-grid.wide { grid-template-columns: 1fr 1fr; }
 
+/* page headings (play, about): same style as the play page design */
+.page-title, .cs-header h1.page-title { font-size: 44px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; margin: 0; }
+.cs-header.page-head { padding-top: 72px; display: flex; flex-direction: column; gap: 16px; max-width: 720px; }
+.cs-header.page-head > p { margin: 0; font-size: 20px; line-height: 1.6; }
+
 /* about page */
+.about-hero {
+  padding-top: 72px;
+  display: grid;
+  grid-template-columns: 440px minmax(0, 1fr);
+  gap: 48px 96px;
+  align-items: start;
+}
+.about-portrait { width: 100%; aspect-ratio: 440 / 560; object-fit: cover; border-radius: 16px; display: block; background: var(--card); }
+.about-intro { display: flex; flex-direction: column; gap: 24px; padding-top: 8px; }
+.about-intro p { margin: 0; color: var(--muted); line-height: 1.7; }
+.about-intro .about-lede { font-size: 24px; line-height: 1.5; color: var(--text); }
+.about-intro a { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.about-rows { list-style: none; margin: 0; padding: 0; }
+.cs ul.about-rows { padding-left: 0; }
+.about-rows li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) 180px;
+  gap: 8px 24px;
+  padding: 16px 0;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 17px;
+  line-height: 1.5;
+}
+.about-rows li:first-child { padding-top: 0; }
+.about-rows .org { color: var(--muted); }
+.about-rows .org a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.about-rows .when { font-family: var(--mono); font-size: 13px; color: var(--muted); text-align: right; padding-top: 3px; }
+.about-hello { margin-top: 144px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 32px; flex-wrap: wrap; }
+.about-hello a { font-size: 20px; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+@media (max-width: 860px) {
+  .about-hero { grid-template-columns: 1fr; padding-top: 32px; }
+  .about-portrait { max-width: 360px; }
+  .about-rows li { grid-template-columns: 1fr; gap: 2px; }
+  .about-rows .when { text-align: left; padding-top: 4px; }
+  .page-title, .cs-header h1.page-title { font-size: 36px; }
+  .about-hello { margin-top: 96px; }
+}
+
 .exp-list { list-style: none; margin: 0 0 12px; padding: 0; }
 .exp-list li {
   display: flex;
