@@ -13,21 +13,18 @@
 </head>
 <body>
 
-  <aside class="rail">
-    <a class="rail-logo" href="index.html" aria-label="Home">
-      <img src="assets/logo.png" alt="Bridgit Jung logo" />
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="bridgit jung, home">
+      <img src="assets/tiles/logo-tile.png" alt="" width="42" height="42" />
+      <span>bridgit jung</span>
     </a>
-    <nav class="rail-nav" aria-label="Main">
-      <a href="index.html">home</a>
-      <a href="art.html" class="active">art</a>
+    <nav class="topnav" aria-label="Main">
+      <a href="index.html">work</a>
+      <a href="art.html" aria-current="page">play</a>
       <a href="about.html">about</a>
+      <a href="https://drive.google.com/file/d/1Nah2J1dNrO1BNFZ-xkhOoM-00jr4Ef2p/view?usp=sharing" target="_blank" rel="noopener">resume ↗</a>
     </nav>
-    <div class="rail-footer">
-      <a href="https://drive.google.com/file/d/1Nah2J1dNrO1BNFZ-xkhOoM-00jr4Ef2p/view?usp=sharing" target="_blank" rel="noopener">resume</a>
-      <a href="https://www.linkedin.com/in/bridgit-jung" target="_blank" rel="noopener">linkedin</a>
-      <a href="index.html#contact">contact</a>
-    </div>
-  </aside>
+  </header>
 
   <main class="cs">
     <header class="cs-header">
@@ -94,12 +91,16 @@
 
     <footer class="site-footer">
       <p>made with ♡ by bridgit jung © 2026</p>
+      <p class="footer-links"><a href="mailto:bridgit.jung@gmail.com">email</a><a href="https://www.linkedin.com/in/bridgit-jung" target="_blank" rel="noopener">linkedin ↗</a><a href="https://drive.google.com/file/d/1Nah2J1dNrO1BNFZ-xkhOoM-00jr4Ef2p/view?usp=sharing" target="_blank" rel="noopener">resume ↗</a></p>
     </footer>
   </main>
+
+  <div class="tile-floor" aria-hidden="true"></div>
 
   <script src="js/reveal.js"></script>
   <script src="js/lightbox.js"></script>
   <script src="js/backtotop.js"></script>
+  <script src="js/tiles.js"></script>
   <script src="js/toc.js"></script>
 </body>
 </html>

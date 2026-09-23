@@ -13,35 +13,31 @@
 </head>
 <body>
 
-  <!-- Left rail -->
-  <aside class="rail">
-    <a class="rail-logo" href="#top" aria-label="Home">
-      <img src="assets/logo.png" alt="Bridgit Jung logo" />
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="bridgit jung, home">
+      <img src="assets/tiles/logo-tile.png" alt="" width="42" height="42" />
+      <span>bridgit jung</span>
     </a>
-    <nav class="rail-nav" aria-label="Main">
-      <a href="#top" class="active">home</a>
-      <a href="art.html">art</a>
+    <nav class="topnav" aria-label="Main">
+      <a href="index.html" aria-current="page">work</a>
+      <a href="art.html">play</a>
       <a href="about.html">about</a>
+      <a href="https://drive.google.com/file/d/1Nah2J1dNrO1BNFZ-xkhOoM-00jr4Ef2p/view?usp=sharing" target="_blank" rel="noopener">resume ↗</a>
     </nav>
-    <div class="rail-footer">
-      <a href="https://drive.google.com/file/d/1Nah2J1dNrO1BNFZ-xkhOoM-00jr4Ef2p/view?usp=sharing" target="_blank" rel="noopener">resume</a>
-      <a href="https://www.linkedin.com/in/bridgit-jung" target="_blank" rel="noopener">linkedin</a>
-      <a href="#contact" id="contact-link">contact</a>
-    </div>
-  </aside>
+  </header>
 
   <main id="top">
     <!-- Hero -->
     <header class="hero">
-      <h1 class="hero-intro">
-        <span class="accent semibold">bridgit jung</span> is a product designer who<br />
-        crafts solutions with and for people&nbsp;<span class="sparkle">✶⋆.˚</span>
-      </h1>
-      <p class="hero-meta">
-        currently a <span class="accent">UX Designer</span> at <a class="accent" href="https://www.synopsys.com/" target="_blank" rel="noopener">Synopsys↗︎</a><br />
-        <span class="accent">MS/BS</span> in <span class="accent">UX Design</span> from the <a class="accent" href="https://www.si.umich.edu/" target="_blank" rel="noopener">University of Michigan↗︎</a>
-      </p>
+      <div class="hero-text">
+        <h1 class="hero-intro">Hi, I'm Bridgit! I'm a product designer who crafts solutions <mark>with and for people</mark>.</h1>
+        <p class="hero-meta">Currently a UX Designer at <a href="https://www.synopsys.com/" target="_blank" rel="noopener">Synopsys</a>, making simulation software feel a little less intimidating. Before that, MS + BS in UX Design at the <a href="https://www.si.umich.edu/" target="_blank" rel="noopener">University of Michigan</a>.</p>
+        <p class="hero-status">↳ open to chatting</p>
+      </div>
+      <div class="tile-play"></div>
     </header>
+
+    <div class="section-label"><span>selected work</span><span>(04)</span></div>
 
     <!-- Projects -->
     <section class="projects" aria-label="Selected work">
@@ -54,7 +50,7 @@
         <img class="sticker sticker-br sticker-lg" style="--rot: 8deg" src="assets/sticker-freshhold.svg" alt="Most Innovative Product — Pervasive Interaction Design award badge" loading="lazy" />
         </div>
         <div class="project-info">
-          <h2><a class="accent" href="freshhold.html">FreshHold</a></h2>
+          <h2><a class="accent" href="freshhold.html">FreshHold</a> <span class="year">2025</span></h2>
           <p>Managing and keeping food fresh</p>
           <ul class="tags">
             <li>Product Design</li>
@@ -71,7 +67,7 @@
         <img class="sticker sticker-bl" style="--rot: -8deg" src="assets/sticker-jstor.svg" alt="JSTOR ornamental J logo" loading="lazy" />
         </div>
         <div class="project-info">
-          <h2><a class="accent" href="jstor.html">JSTOR DAILY</a></h2>
+          <h2><a class="accent" href="jstor.html">JSTOR Daily</a> <span class="year">2024–25</span></h2>
           <p>Optimizing content discoverability for intellectual readers</p>
           <ul class="tags">
             <li>Client</li>
@@ -88,7 +84,7 @@
         <img class="sticker sticker-br" style="--rot: 6.5deg" src="assets/sticker-inkedbook.svg" alt="Inkedbook framed logo sticker" loading="lazy" />
         </div>
         <div class="project-info">
-          <h2><a class="accent" href="inkedbook.html">Inkedbook</a></h2>
+          <h2><a class="accent" href="inkedbook.html">Inkedbook</a> <span class="year">2022</span></h2>
           <p>Streamlining tattoo artist discovery and scheduling</p>
           <ul class="tags">
             <li>Product Design</li>
@@ -97,11 +93,37 @@
         </div>
       </article>
 
+      <article class="project">
+        <div class="project-figure">
+          <div class="project-media wip"><span>case study coming soon</span></div>
+        </div>
+        <div class="project-info">
+          <h2>Ansys Discovery <span class="year">ongoing</span></h2>
+          <p>Work in progress</p>
+          <ul class="tags">
+            <li>Enterprise Software</li>
+            <li>UX Design</li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Play -->
+    <section class="play-strip" aria-label="Play">
+      <div class="section-label"><span>play — art, sketches, side things</span><a href="art.html">see all →</a></div>
+      <div class="play-grid">
+        <a href="art.html"><img src="https://framerusercontent.com/images/RUN0QX4V3V48R9xVAvgjMKW0.jpg?width=600" alt="Handbound risograph book, I want to forget" loading="lazy" /></a>
+        <a href="art.html"><img src="https://framerusercontent.com/images/zewILJ3ErnZmswTleV10Zdttts.jpg?width=600" alt="Risograph print" loading="lazy" /></a>
+        <a href="art.html"><img src="https://framerusercontent.com/images/HawdXrf36toVXe4uwcaDJMqe4.jpg?width=600" alt="Ceramic piece" loading="lazy" /></a>
+        <a href="art.html"><img src="https://framerusercontent.com/images/3LRQ6t9y2aapGHGicwl1HkG38.jpg?width=600" alt="Print artwork" loading="lazy" /></a>
+        <a href="art.html"><img src="https://framerusercontent.com/images/QD5bG6ibtIuneo3hWh0TrEDIcA.jpg?width=600" alt="Risograph print" loading="lazy" /></a>
+      </div>
     </section>
 
     <!-- Contact -->
     <section class="contact" id="contact" aria-label="Contact">
-      <h2 class="contact-title accent">say hello&nbsp;<span class="sparkle">✶⋆.˚</span></h2>
+      <h2 class="contact-title accent">say hello ✶</h2>
       <p class="contact-sub">Have a project, a question, or just want to chat? Leave a note below or email <a class="accent" href="mailto:bridgit.jung@gmail.com">bridgit.jung@gmail.com</a>.</p>
       <form id="contact-form" novalidate>
         <div class="field-row">
@@ -125,12 +147,16 @@
 
     <footer class="site-footer">
       <p>made with ♡ by bridgit jung © 2026</p>
+      <p class="footer-links"><a href="mailto:bridgit.jung@gmail.com">email</a><a href="https://www.linkedin.com/in/bridgit-jung" target="_blank" rel="noopener">linkedin ↗</a><a href="https://drive.google.com/file/d/1Nah2J1dNrO1BNFZ-xkhOoM-00jr4Ef2p/view?usp=sharing" target="_blank" rel="noopener">resume ↗</a></p>
     </footer>
   </main>
+
+  <div class="tile-floor" aria-hidden="true"></div>
 
   <script src="js/config.js"></script>
   <script src="js/reveal.js"></script>
   <script src="js/main.js"></script>
   <script src="js/backtotop.js"></script>
+  <script src="js/tiles.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 // Top-level content blocks slide up: those in view on load cascade in page
 // order, and the rest reveal as they scroll into view.
 const revealTargets = document.querySelectorAll(
-  ".hero-intro, .hero-meta, .project, .contact, main > .site-footer, main.cs > *"
+  ".hero-intro, .hero-meta, .project, .play-strip, .contact, main > .site-footer, main.cs > *"
 );
 revealTargets.forEach((el) => el.classList.add("reveal"));
 
