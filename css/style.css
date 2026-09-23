@@ -453,7 +453,7 @@ main.cs { max-width: var(--page); }
 .cs-meta li { display: flex; flex-direction: column; gap: 6px; }
 .cs-meta strong { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0.04em; text-transform: lowercase; }
 
-.cs section { margin-top: 112px; padding-top: 20px; border-top: 1px solid var(--line); }
+.cs section { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); }
 .cs h2 {
   font-family: var(--mono);
   font-weight: 400;
@@ -516,10 +516,10 @@ main.cs { max-width: var(--page); }
 .embed { position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; background: var(--card); margin: 24px 0; }
 .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-.cs-outro { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-top: 96px; padding-top: 20px; border-top: 1px solid var(--line); }
+.cs-outro { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
 
 .next-project {
-  margin-top: 112px;
+  margin-top: 56px;
   padding: 40px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -563,8 +563,6 @@ main.cs { max-width: var(--page); }
   align-items: start;
 }
 .about-portrait { width: 100%; height: auto; aspect-ratio: 440 / 560; object-fit: cover; object-position: 50% 70%; border-radius: 16px; display: block; background: var(--card); }
-.cs.about section { margin-top: 56px; }
-.cs.about section.flush { margin-top: 56px; }
 
 .about-intro { display: flex; flex-direction: column; gap: 24px; padding-top: 8px; }
 .about-intro p { margin: 0; color: var(--muted); line-height: 1.7; }
@@ -728,7 +726,7 @@ main.cs { max-width: var(--page); }
   .contact { grid-template-columns: 1fr; margin-top: 96px; }
   #contact-form { grid-column: auto; grid-row: auto; }
   .contact-title { font-size: 40px; }
-  .cs section { margin-top: 64px; }
+  .cs section { margin-top: 32px; }
   .cs .lede { font-size: 22px; }
   .fig-row, .fig-row.thirds, .feature-grid { grid-template-columns: 1fr; }
   .fig-row.side-by-side { grid-template-columns: 1fr 1fr; }
