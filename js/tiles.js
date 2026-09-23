@@ -171,34 +171,69 @@
   }
 
   /* ---------- bottom band: drag to swap, click to turn ---------- */
+  // Phones get half as many tiles as desktop (16 vs 34), shown larger.
   function floorBand(root) {
     const S = 80;
-    const pos = [];
-    for (let sum = 0; sum <= 2; sum++) {
-      const lim = sum % 2 === 0 ? 10 : 11;
-      for (let d = -lim; d <= lim; d += 2) pos.push([(sum + d) / 2, (sum - d) / 2]);
-    }
-    const order = pos.map((_, k) => (k % 2 === 0 ? 0 : 1 + (Math.floor(k / 2) % DESIGNS.length)));
-    const rot = pos.map(() => 0);
-
-    const stage = el("div", "floor-stage");
-    const plane = el("div", "floor-plane");
-    const hint = el("span", "floor-hint");
-    hint.textContent = "drag tiles to rearrange ✥ click to turn";
-    stage.appendChild(plane);
-    stage.appendChild(hint);
-    root.appendChild(stage);
-
+    let stage, plane, hint, pos, order, rot, btns, faces, width, mobile;
     let drag = null;
     let over = null;
-    const faces = [];
-    const btns = pos.map((p, k) => {
-      const b = el("button", "floor-btn", { type: "button", tabindex: "-1" });
-      faces.push(buildTile(b, ALL[order[k]], 8));
-      b.style.transform = "translate3d(" + p[0] * S + "px," + p[1] * S + "px,0)";
-      plane.appendChild(b);
-      return b;
-    });
+
+    function build() {
+      root.innerHTML = "";
+      mobile = window.innerWidth < 860;
+      const lims = mobile ? [4, 5] : [10, 11];
+      pos = [];
+      for (let sum = 0; sum <= 2; sum++) {
+        const lim = sum % 2 === 0 ? lims[0] : lims[1];
+        for (let d = -lim; d <= lim; d += 2) pos.push([(sum + d) / 2, (sum - d) / 2]);
+      }
+      width = mobile ? 720 : 1440;
+      order = pos.map((_, k) => (k % 2 === 0 ? 0 : 1 + (Math.floor(k / 2) % DESIGNS.length)));
+      rot = pos.map(() => 0);
+
+      stage = el("div", "floor-stage");
+      stage.style.width = width + "px";
+      stage.style.marginLeft = -width / 2 + "px";
+      plane = el("div", "floor-plane");
+      hint = el("span", "floor-hint");
+      hint.textContent = "drag tiles to rearrange ✥ click to turn";
+      stage.appendChild(plane);
+      root.appendChild(stage);
+      root.appendChild(hint);
+
+      faces = [];
+      btns = pos.map((p, k) => {
+        const b = el("button", "floor-btn", { type: "button", tabindex: "-1" });
+        faces.push(buildTile(b, ALL[order[k]], 8));
+        plane.appendChild(b);
+        b.addEventListener("pointerdown", (e) => {
+          if (b.hasPointerCapture && b.hasPointerCapture(e.pointerId)) b.releasePointerCapture(e.pointerId);
+          drag = k;
+          over = k;
+          paint();
+        });
+        b.addEventListener("pointerenter", () => {
+          if (drag === null) return;
+          over = k;
+          paint();
+        });
+        b.addEventListener("pointerup", () => {
+          if (drag === null) return;
+          if (drag === k) {
+            rot[k] += 90;
+          } else {
+            [order[drag], order[k]] = [order[k], order[drag]];
+            [rot[drag], rot[k]] = [rot[k], rot[drag]];
+          }
+          drag = null;
+          over = null;
+          paint();
+        });
+        return b;
+      });
+      fit();
+      paint();
+    }
 
     function paint() {
       btns.forEach((b, k) => {
@@ -211,45 +246,22 @@
       });
     }
 
-    btns.forEach((b, k) => {
-      b.addEventListener("pointerdown", (e) => {
-        if (b.hasPointerCapture && b.hasPointerCapture(e.pointerId)) b.releasePointerCapture(e.pointerId);
-        drag = k;
-        over = k;
-        paint();
-      });
-      b.addEventListener("pointerenter", () => {
-        if (drag === null) return;
-        over = k;
-        paint();
-      });
-      b.addEventListener("pointerup", () => {
-        if (drag === null) return;
-        if (drag === k) {
-          rot[k] += 90;
-        } else {
-          [order[drag], order[k]] = [order[k], order[drag]];
-          [rot[drag], rot[k]] = [rot[k], rot[drag]];
-        }
-        drag = null;
-        over = null;
-        paint();
-      });
-    });
+    function fit() {
+      const s = Math.min(1, root.clientWidth / width);
+      stage.style.transform = "scale(" + s + ")";
+      root.style.height = 280 * s + "px";
+    }
+
     root.addEventListener("pointerleave", () => {
       drag = null;
       over = null;
       paint();
     });
-
-    function fit() {
-      const s = Math.min(1, root.clientWidth / 1440);
-      stage.style.transform = "scale(" + s + ")";
-      root.style.height = 280 * s + "px";
-    }
-    window.addEventListener("resize", fit);
-    fit();
-    paint();
+    window.addEventListener("resize", () => {
+      if ((window.innerWidth < 860) !== mobile) build();
+      else fit();
+    });
+    build();
   }
 
   /* ---------- margin tiles (wide screens) ---------- */

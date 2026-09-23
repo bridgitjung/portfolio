@@ -4,7 +4,7 @@
   btn.className = "back-to-top";
   btn.type = "button";
   btn.setAttribute("aria-label", "Back to top");
-  btn.innerHTML = '<img src="assets/tiles/logo-tile.png" alt="" aria-hidden="true" /><span>↑ top</span>';
+  btn.innerHTML = '<span aria-hidden="true">↑</span><span>top</span>';
   document.body.appendChild(btn);
 
   function toggle() {
