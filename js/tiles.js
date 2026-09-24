@@ -184,6 +184,7 @@
     let stage, plane, hint, pos, order, rot, btns, faces, width, mobile;
     let drag = null;
     let over = null;
+    let picked = null; // phones: first tapped tile, waiting for a partner
 
     function build() {
       root.innerHTML = "";
@@ -203,7 +204,10 @@
       stage.style.marginLeft = -width / 2 + "px";
       plane = el("div", "floor-plane");
       hint = el("span", "floor-hint");
-      hint.textContent = "drag tiles to rearrange ✥ click to turn";
+      hint.textContent = mobile
+        ? "tap two tiles to swap ✥ tap one twice to turn"
+        : "drag tiles to rearrange ✥ click to turn";
+      picked = null;
       stage.appendChild(plane);
       root.appendChild(stage);
       root.appendChild(hint);
@@ -232,11 +236,20 @@
         b.addEventListener("pointerup", (e) => {
           if (drag === null) return;
           const t = tileAt(e.clientX, e.clientY);
-          if (t === drag) {
-            rot[drag] += 90;
-          } else if (t !== null) {
-            [order[drag], order[t]] = [order[t], order[drag]];
-            [rot[drag], rot[t]] = [rot[t], rot[drag]];
+          if (t !== null && t !== drag) {
+            swap(drag, t); // dragged onto another tile
+            picked = null;
+          } else if (t === drag) {
+            // a tap: phones pick a tile, then swap it with the next one tapped
+            if (!mobile) rot[drag] += 90;
+            else if (picked === null) picked = drag;
+            else if (picked === drag) {
+              rot[drag] += 90;
+              picked = null;
+            } else {
+              swap(picked, drag);
+              picked = null;
+            }
           }
           drag = null;
           over = null;
@@ -261,12 +274,18 @@
       return i < 0 ? null : i;
     }
 
+    function swap(a, b) {
+      [order[a], order[b]] = [order[b], order[a]];
+      [rot[a], rot[b]] = [rot[b], rot[a]];
+    }
+
     function paint() {
       btns.forEach((b, k) => {
-        const lift = k === drag ? 30 : k === over && drag !== null ? 12 : 0;
+        const lift = k === drag ? 30 : k === picked ? 20 : k === over && drag !== null ? 12 : 0;
         b.style.transform = "translate3d(" + pos[k][0] * S + "px," + pos[k][1] * S + "px," + lift + "px)";
         b.classList.toggle("dragging", k === drag);
         b.classList.toggle("over", drag !== null && k === over && k !== drag);
+        b.classList.toggle("picked", k === picked);
         faces[k].src = ALL[order[k]];
         faces[k].style.transform = "translateZ(8px) rotate(" + rot[k] + "deg)";
       });
@@ -278,6 +297,12 @@
       root.style.height = 280 * s + "px";
     }
 
+    root.addEventListener("pointerdown", (e) => {
+      if (picked === null) return;
+      if (e.target.closest && e.target.closest(".floor-btn")) return;
+      picked = null;
+      paint();
+    });
     root.addEventListener("pointerleave", () => {
       drag = null;
       over = null;

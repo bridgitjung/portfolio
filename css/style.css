@@ -401,6 +401,7 @@ main {
 .floor-btn img { transition: transform 0.3s ease, box-shadow 0.2s ease; }
 .floor-btn.dragging img { box-shadow: 0 0 0 3px #2d4f86; }
 .floor-btn.over img { box-shadow: 0 0 0 3px var(--coral); }
+.floor-btn.picked img { box-shadow: 0 0 0 3px var(--coral-dkr); }
 .floor-hint {
   position: absolute;
   left: 50%;
