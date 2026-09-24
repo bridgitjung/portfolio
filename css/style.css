@@ -375,8 +375,8 @@ main {
 
 /* phones: "what is this?" drops to its own line under the hint */
 @media (max-width: 860px) {
-  .tile-hint { flex-wrap: wrap; row-gap: 10px; }
-  .tile-info-btn { flex-basis: 100%; text-align: left; padding-left: 0; }
+  .tile-hint { flex-wrap: wrap; row-gap: 10px; justify-content: center; }
+  .tile-info-btn { flex-basis: 100%; text-align: center; padding-left: 0; }
 }
 
 /* phones: close the gap between the hero copy and the tiles */
