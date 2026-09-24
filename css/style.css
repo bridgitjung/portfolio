@@ -402,6 +402,7 @@ main {
 .floor-btn.dragging img { box-shadow: 0 0 0 3px #2d4f86; }
 .floor-btn.over img { box-shadow: 0 0 0 3px var(--coral); }
 .floor-btn.picked img { box-shadow: 0 0 0 3px var(--coral-dkr); }
+.tile-confetti { position: absolute; pointer-events: none; }
 .floor-hint {
   position: absolute;
   left: 50%;

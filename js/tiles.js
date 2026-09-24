@@ -36,6 +36,138 @@
     return img;
   }
 
+  /* ---------- soft clicks ---------- */
+  // Synthesised rather than loaded: a tap should never wait on a download.
+  let actx = null;
+  function audio() {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    if (!actx) {
+      try { actx = new AC(); } catch (e) { return null; }
+    }
+    if (actx.state === "suspended") actx.resume();
+    return actx;
+  }
+
+  // short burst of filtered noise: the "tick" of ceramic meeting ceramic
+  function tick(dur, vol, freq, q) {
+    const a = audio();
+    if (!a) return;
+    const n = Math.max(1, Math.floor(a.sampleRate * dur));
+    const buf = a.createBuffer(1, n, a.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) {
+      const k = 1 - i / n;
+      d[i] = (Math.random() * 2 - 1) * k * k * k; // steep decay reads as a click
+    }
+    const src = a.createBufferSource();
+    src.buffer = buf;
+    const bp = a.createBiquadFilter();
+    bp.type = "bandpass";
+    bp.frequency.value = freq;
+    bp.Q.value = q || 2.4;
+    const g = a.createGain();
+    g.gain.value = vol;
+    src.connect(bp).connect(g).connect(a.destination);
+    src.start();
+  }
+
+  // soft pitched body under the tick
+  function thock(freq, dur, vol, type) {
+    const a = audio();
+    if (!a) return;
+    const t = a.currentTime;
+    const o = a.createOscillator();
+    const g = a.createGain();
+    o.type = type || "sine";
+    o.frequency.setValueAtTime(freq, t);
+    o.frequency.exponentialRampToValueAtTime(freq * 0.7, t + dur);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(vol, t + 0.006);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g).connect(a.destination);
+    o.start(t);
+    o.stop(t + dur + 0.02);
+  }
+
+  // clicky from the steep decay, not from pitch: keep these low and woody
+  const sfx = {
+    pick: () => { tick(0.014, 0.07, 1700, 2.2); thock(760, 0.04, 0.035, "triangle"); },
+    drop: () => { tick(0.02, 0.1, 1250, 2); thock(480, 0.06, 0.05, "triangle"); },
+    turn: () => { tick(0.012, 0.06, 2050, 2.4); thock(980, 0.032, 0.03, "triangle"); },
+  };
+
+  /* ---------- confetti ---------- */
+  // Pastel picks from the tile palette.
+  const CONFETTI = ["#ec7060", "#f3b5aa", "#f7d9d3", "#dbf2fc", "#a9dcef", "#fbeee6"];
+  const PAD_X = 400, PAD_TOP = 320, PAD_BOT = 240; // room to fly past the tiles
+  function confetti(host, ox, oy) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const cv = el("canvas", "tile-confetti", { "aria-hidden": "true" });
+    // clamp to what is actually on screen: a burst must never widen the page
+    const r = host.getBoundingClientRect();
+    const padL = Math.max(0, Math.min(PAD_X, Math.round(r.left) - 2));
+    // clientWidth, not innerWidth: innerWidth counts the scrollbar and overshoots
+    const padR = Math.max(0, Math.min(PAD_X, Math.round(document.documentElement.clientWidth - r.right) - 2));
+    const padT = Math.max(0, Math.min(PAD_TOP, Math.round(r.top + window.scrollY)));
+    const w = host.clientWidth + padL + padR, h = host.clientHeight + padT + PAD_BOT;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = w * dpr;
+    cv.height = h * dpr;
+    cv.style.width = w + "px";
+    cv.style.height = h + "px";
+    cv.style.left = -padL + "px";
+    cv.style.top = -padT + "px";
+    // first child, so the tiles paint over it and the burst comes out from behind
+    host.insertBefore(cv, host.firstChild);
+    const x = ox + padL, y = oy + padT;
+    const ctx = cv.getContext("2d");
+    ctx.scale(dpr, dpr);
+
+    // burst outwards from the centre, with a lift so everything arcs up first
+    const bits = [];
+    for (let i = 0; i < 110; i++) {
+      const ang = Math.random() * Math.PI * 2;
+      const sp = 1.6 + Math.random() * 4.5;
+      bits.push({
+        x: x, y: y,
+        vx: Math.cos(ang) * sp * 1.6,
+        vy: Math.sin(ang) * sp * 0.45 - (3.5 + Math.random() * 4.5),
+        s: 9 + Math.random() * 11,
+        rot: Math.random() * Math.PI,
+        vr: (Math.random() - 0.5) * 0.32,
+        c: CONFETTI[(Math.random() * CONFETTI.length) | 0],
+        age: 0,
+      });
+    }
+
+    let raf = 0;
+    function frame() {
+      ctx.clearRect(0, 0, w, h);
+      let alive = 0;
+      for (const p of bits) {
+        p.age++;
+        p.vy += 0.19; // gravity
+        p.vx *= 0.995; // keep drifting sideways as it falls
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vr;
+        if (p.y > h + 40) continue;
+        alive++;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, 1 - Math.max(0, p.age - 100) / 50);
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * 0.62);
+        ctx.restore();
+      }
+      if (alive) raf = requestAnimationFrame(frame);
+      else { cancelAnimationFrame(raf); cv.remove(); }
+    }
+    frame();
+  }
+
   /* ---------- hero: drag tiles to link them ---------- */
   function heroTiles(root) {
     const CELL = 120;
@@ -118,6 +250,32 @@
       }
       ghost.classList.remove("on");
       paint(-1);
+      sfx.drop();
+      solved();
+    }
+
+    // the four tiles read as "linked" once they sit in a 2x2 block
+    function isLinked() {
+      const snapped = cells.every((c) => Math.abs(c[0] - Math.round(c[0])) < 0.01 && Math.abs(c[1] - Math.round(c[1])) < 0.01);
+      if (!snapped) return false;
+      const cs = cells.map((c) => [Math.round(c[0]), Math.round(c[1])]);
+      const xs = cs.map((c) => c[0]), ys = cs.map((c) => c[1]);
+      if (Math.max.apply(null, xs) - Math.min.apply(null, xs) !== 1) return false;
+      if (Math.max.apply(null, ys) - Math.min.apply(null, ys) !== 1) return false;
+      return new Set(cs.map((c) => c.join(","))).size === 4;
+    }
+
+    let wasLinked = false;
+    function solved() {
+      const now = isLinked();
+      if (now && !wasLinked) {
+        const wr = wrap.getBoundingClientRect();
+        const rs = btns.map((b) => b.getBoundingClientRect());
+        const cx = rs.reduce((t, r) => t + r.left + r.width / 2, 0) / rs.length - wr.left;
+        const cy = rs.reduce((t, r) => t + r.top + r.height / 2, 0) / rs.length - wr.top;
+        confetti(wrap, cx || wr.width / 2, cy || wr.height / 2);
+      }
+      wasLinked = now;
     }
 
     btns.forEach((b, i) => {
@@ -125,6 +283,7 @@
       b.addEventListener("pointerdown", (e) => {
         b.setPointerCapture(e.pointerId);
         drag = { sx: e.clientX, sy: e.clientY, px: 0, py: 0 };
+        sfx.pick();
       });
       b.addEventListener("pointermove", (e) => {
         if (!drag) return;
@@ -155,6 +314,8 @@
     reset.addEventListener("click", () => {
       cells = START.map((c) => c.slice());
       paint(-1);
+      sfx.turn();
+      wasLinked = false;
     });
 
     // The tilted plane leaves the 500-tall stage mostly empty: the tiles sit
@@ -222,6 +383,7 @@
         // moves, and the browser reports the release on the tile it started on.
         b.addEventListener("pointerdown", (e) => {
           try { b.setPointerCapture(e.pointerId); } catch (err) {} // capture is a bonus, not required
+          sfx.pick();
           drag = k;
           over = k;
           paint();
@@ -239,16 +401,22 @@
           if (t !== null && t !== drag) {
             swap(drag, t); // dragged onto another tile
             picked = null;
+            sfx.drop();
           } else if (t === drag) {
             // a tap: phones pick a tile, then swap it with the next one tapped
-            if (!mobile) rot[drag] += 90;
-            else if (picked === null) picked = drag;
-            else if (picked === drag) {
+            if (!mobile) {
+              rot[drag] += 90;
+              sfx.turn();
+            } else if (picked === null) {
+              picked = drag;
+            } else if (picked === drag) {
               rot[drag] += 90;
               picked = null;
+              sfx.turn();
             } else {
               swap(picked, drag);
               picked = null;
+              sfx.drop();
             }
           }
           drag = null;
