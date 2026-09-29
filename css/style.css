@@ -6,7 +6,6 @@
   --line: #e2e2dc;
   --card: #ebebe5;
   --accent: #dbf2fc;      /* highlight fill */
-  --ink: #a8452f;         /* link / accent text (coral, AA on --bg) */
   --coral: #ec7060;
   --coral-dk: #c9604f;
   --coral-dkr: #9e4a3e;
@@ -42,7 +41,7 @@ body {
 
 a { color: inherit; text-decoration: none; }
 a:hover { opacity: 0.65; }
-.accent { color: var(--ink); }
+.accent { color: var(--text); }
 a.accent { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .semibold { font-weight: 600; }
 .sparkle { color: var(--muted); }
@@ -510,7 +509,7 @@ main.cs { max-width: var(--page); }
   font-size: 12px;
   letter-spacing: 0.04em;
   text-transform: lowercase;
-  color: var(--ink);
+  color: var(--text);
   margin-bottom: 10px;
 }
 .card p:last-child, .card ul:last-child { margin-bottom: 0; }
