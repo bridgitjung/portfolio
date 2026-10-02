@@ -477,34 +477,8 @@
     build();
   }
 
-  /* ---------- margin tiles (wide screens) ---------- */
-  function gutterTiles() {
-    document.querySelectorAll(".gutter-tile").forEach((n) => n.remove());
-    const w = window.innerWidth;
-    if ((w - 1200) / 2 < 110) return;
-    const floor = document.querySelector(".tile-floor");
-    const bottom = (floor ? floor.offsetTop : document.body.scrollHeight) - 300;
-    const turns = [45, 20, 45, 30, 0, 45];
-    let i = 0;
-    for (let y = 560; y < bottom; y += 720, i++) {
-      const t = el("div", "gutter-tile", { "aria-hidden": "true" });
-      t.style.top = y + "px";
-      t.style.left = (i % 2 === 0 ? 28 : w - 28 - 60) + "px";
-      const img = el("img", "", { src: ALL[(i % DESIGNS.length) + 1 === 7 ? 0 : (i % DESIGNS.length) + 1], alt: "" });
-      img.style.transform = "rotateX(42deg) rotateZ(" + turns[i % turns.length] + "deg)";
-      t.appendChild(img);
-      document.body.appendChild(t);
-    }
-  }
-
   const hero = document.querySelector(".tile-play");
   if (hero) heroTiles(hero);
   const floor = document.querySelector(".tile-floor");
   if (floor) floorBand(floor);
-  window.addEventListener("load", gutterTiles);
-  let t;
-  window.addEventListener("resize", () => {
-    clearTimeout(t);
-    t = setTimeout(gutterTiles, 200);
-  });
 })();
