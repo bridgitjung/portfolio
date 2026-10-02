@@ -366,8 +366,8 @@
       plane = el("div", "floor-plane");
       hint = el("span", "floor-hint");
       hint.textContent = mobile
-        ? "tap two tiles to swap ✥ tap one twice to turn"
-        : "drag tiles to rearrange ✥ click to turn";
+        ? "tap two tiles to swap"
+        : "drag tiles to rearrange";
       picked = null;
       stage.appendChild(plane);
       root.appendChild(stage);
@@ -402,18 +402,11 @@
             swap(drag, t); // dragged onto another tile
             picked = null;
             sfx.drop();
-          } else if (t === drag) {
+          } else if (t === drag && mobile) {
             // a tap: phones pick a tile, then swap it with the next one tapped
-            if (!mobile) {
-              rot[drag] += 90;
-              sfx.turn();
-            } else if (picked === null) {
-              picked = drag;
-            } else if (picked === drag) {
-              rot[drag] += 90;
-              picked = null;
-              sfx.turn();
-            } else {
+            if (picked === null) picked = drag;
+            else if (picked === drag) picked = null; // tapping it again just clears
+            else {
               swap(picked, drag);
               picked = null;
               sfx.drop();
@@ -459,10 +452,11 @@
       });
     }
 
+    const PAD_TOP = 50, PAD_BOTTOM = 100; // breathing room around the band
     function fit() {
       const s = Math.min(1, root.clientWidth / width);
       stage.style.transform = "scale(" + s + ")";
-      root.style.height = 280 * s + "px";
+      root.style.height = 280 * s + PAD_TOP + PAD_BOTTOM + "px";
     }
 
     root.addEventListener("pointerdown", (e) => {
