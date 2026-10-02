@@ -493,12 +493,12 @@ main.cs { max-width: var(--page); }
   height: auto;
   border-radius: 16px;
   margin: 32px 0 8px;
-  background: var(--card);
+  background: transparent;
 }
 .cs .caption { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 0 0 24px; }
 
 .fig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
-.fig-row img { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--card); }
+.fig-row img { width: 100%; height: auto; border-radius: 12px; display: block; background: transparent; }
 .fig-row.thirds { grid-template-columns: repeat(3, 1fr); }
 .fig-row.side-by-side { grid-template-columns: 1fr 1fr; }
 
@@ -519,7 +519,7 @@ main.cs { max-width: var(--page); }
 .feature-row { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 40px; align-items: center; margin: 40px 0; }
 .feature-row.flip { grid-template-columns: 1fr minmax(0, 320px); }
 .feature-row.flip img { order: 2; }
-.feature-row img { max-height: 400px; max-width: 100%; width: auto; height: auto; border-radius: 12px; display: block; margin-inline: auto; background: var(--card); }
+.feature-row img { max-height: 400px; max-width: 100%; width: auto; height: auto; border-radius: 12px; display: block; margin-inline: auto; background: transparent; }
 .feature-row .card-label { font-size: 13px; }
 .feature-row p { margin: 0; }
 
@@ -549,14 +549,14 @@ main.cs { max-width: var(--page); }
 
 .other-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .other-card { display: block; }
-.other-card img { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--card); }
+.other-card img { width: 100%; height: auto; border-radius: 12px; display: block; background: transparent; }
 .other-card span { display: inline-block; margin-top: 14px; font-size: 22px; font-weight: 500; }
 .other-card:hover { opacity: 1; }
 .other-card:hover span { text-decoration: underline; text-underline-offset: 4px; }
 
 /* art page */
 .art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; align-items: center; }
-.art-grid img { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--card); }
+.art-grid img { width: 100%; height: auto; border-radius: 12px; display: block; background: transparent; }
 .art-grid.wide { grid-template-columns: 1fr 1fr; }
 
 /* page headings (play, about): same style as the play page design */
