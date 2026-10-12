@@ -46,7 +46,7 @@
     <a class="back-link" href="index.html">← all work</a>
 
     <div class="cs-cover">
-      <img src="assets/lipreading/lipreading-cover.webp" alt="One page of the rebuilt flowchart: the title Lip Reading, a Part I: Speaker Evaluation banner, a breadcrumb of previous answers, the question Is the speaker facing you, and YES, NO and Start over buttons" width="1348" height="958" />
+      <img src="assets/lipreading/lipreading-cover.webp" alt="A page of the rebuilt Lip Reading flowchart in a browser, asking Is the speaker facing you with YES, NO and Start over, beside a VoiceOver speech bubble reading chuh, luh, qwuh, tough, muh, vuh, rough, and a card of the pink heard sounds and blue seen sounds" width="1348" height="958" />
     </div>
 
     <header class="cs-header">
@@ -98,11 +98,15 @@
     <section id="process">
       <h2>One poster, rebuilt as 22 linked pages</h2>
       <p>I gave every box on the poster its own page, and every answer its own link. Seven dated builds over four weeks, from the first pass on 13 February 2024 to the version handed off on 11 March.</p>
+      <img class="fig" src="assets/lipreading/lipreading-page-map.webp" alt="A map of all 22 pages. Part I branches from Does the speaker have a beard through questions about the mouth, facing, and a hand over the mouth. Six dead ends, such as You're out of luck and Oh well, over and out, are marked with a Go back link. Four pages send you to Part II, which runs from What sounds can you see and hear, through Does this make sense, to the punchline Shall we stop for a quick coffee and a sandwich. Start over appears on all but one page." loading="lazy" />
+      <p class="caption">Every box on the poster became a page. Dead ends get Go back; Start over is on all but one.</p>
       <div class="card">
         <span class="card-label">From a form to plain links</span>
         <p>My first prototype made each question a set of radio buttons with a Submit button and a JavaScript redirect. It worked, but it put a form between the reader and a question that only ever had two answers — and it depended on script to go anywhere.</p>
         <p>I replaced it with plain <code>&lt;a href&gt;</code> links styled as boxes. Links are focusable and announced by a screen reader with nothing else attached. The final build has no JavaScript in it at all.</p>
       </div>
+      <img class="fig" src="assets/lipreading/lipreading-form-to-links.webp" alt="Before and after. The prototype asks Does the speaker have a beard as a radio-button form with a Submit button and a JavaScript redirect; answering YES by keyboard takes tab, space, tab, enter. The shipped version uses two bordered links, YES and NO, with aria-describedby pointing at the question; answering takes tab, enter, and no script." loading="lazy" />
+      <p class="caption">The prototype form against the shipped links, and the keystrokes each one costs.</p>
       <p>The styling follows Ting's poster rather than my own taste: Barlow Condensed, centred, the part title reversed out of a gray banner, and each choice a box with a 3px black border.</p>
     </section>
 
@@ -119,13 +123,15 @@
         <li><strong>Part I collapses.</strong> Three different paths lead into Part II, so carrying the full Part I trail would make every Part II page start differently. Part II trails open with a single link, "Part I: Speaker Evaluation."</li>
         <li><strong>Two branches merge.</strong> The SEE and HEAR branches rejoin when the sounds get added together, so that trail shows both paths joined by a slash.</li>
       </ul>
+      <img class="fig" src="assets/lipreading/lipreading-breadcrumb.webp" alt="Two breadcrumbs from the build, annotated. In Part I, previous questions are underlined links back, each followed by the answer given, ending at the current question, Is the speaker facing you. In Part II, the trail opens with a single link for all of Part I, then shows What sounds can you SEE and What sounds can you HEAR joined by a slash, ending at Add hearing and seeing sounds." loading="lazy" />
+      <p class="caption">The trail in Part I, and the two compromises it makes in Part II.</p>
     </section>
 
     <section id="dead-ends">
       <h2>Every dead end gets an exit</h2>
       <p>The poster is full of jokes that stop you dead — "you're out of luck," and so on. On paper your eye just wanders back. In a browser, a dead end with no way out is a trap.</p>
       <ul>
-        <li><strong>Start over</strong> appears on all 22 pages, and returns to the first question.</li>
+        <li><strong>Start over</strong> appears on 21 of the 22 pages, and returns to the first question.</li>
         <li><strong>Go back</strong> appears only on the six dead ends, and returns to the question that sent you there.</li>
       </ul>
       <p>Ordinary question pages don't get a Go back, because the breadcrumb above them already links to every previous question. Adding one would mean two controls doing the same job on the same page.</p>
@@ -153,6 +159,8 @@
           <p>The fragments became images, and the alt text spelled them the way they sound. One clean announcement, and the spacing of the original is preserved as part of the picture.</p>
         </div>
       </div>
+      <img class="fig" src="assets/lipreading/lipreading-voiceover.webp" alt="The four approaches compared by markup and what VoiceOver says. Plain text is read as letters: C, H, L, L, Q, U. An aria-label on each fragment is read as chuh, group: ch. SSML phonemes are not supported in HTML5. An image with phonetic alt text is read as chuh, luh, qwuh, tough, muh, vuh, rough, and shipped." loading="lazy" />
+      <p class="caption">Same fragment, four markups, and what VoiceOver actually said.</p>
       <p>I tested the spellings in VoiceOver and chose whatever actually sounded right, which was not always the obvious transcription: <em>ch</em> became "chuh", <em>qu</em> became "qwuh", and <em>t</em> and <em>r</em> became "tough" and "rough" rather than "tuh" and "ruh".</p>
       <div class="fig-row">
         <div>
@@ -184,6 +192,8 @@
     <section id="audit">
       <h2>What I'd fix, looking back at my own code</h2>
       <p>This is an accessibility project, so it should be held to its own standard. Reading my 2024 build now, four things fall short:</p>
+      <img class="fig" src="assets/lipreading/lipreading-audit.webp" alt="Four audit findings. Focus: the YES box turns its text gray on focus, 2.7 to 1, failing 4.5 to 1; the fix inverts the box to white on black with a blue focus ring. Color: the blue seen sounds and pink heard sounds are distinct with typical vision but nearly identical under simulated protanopia, at 1.16 to 1 against each other. Titles and language appear on only 4 of 22 pages. The breadcrumb is a div of links and paragraphs instead of a nav with an ordered list." loading="lazy" />
+      <p class="caption">The four gaps, measured.</p>
       <div class="card">
         <span class="card-label">Focus fades instead of announcing itself</span>
         <p>Links turn gray on hover and focus, which lands at 2.7:1 against white — below the 4.5:1 minimum, and on the one state a keyboard user depends on. It should invert the box and add a visible focus ring.</p>
@@ -199,6 +209,10 @@
       <div class="card">
         <span class="card-label">The breadcrumb isn't marked up as one</span>
         <p>It behaves like a breadcrumb but it's a <code>&lt;div&gt;</code> of paragraphs and links, so a screen reader can't skip to it or announce what it is. It should be a <code>&lt;nav aria-label="Breadcrumb"&gt;</code> wrapping an ordered list.</p>
+      </div>
+      <div class="card">
+        <span class="card-label">One page missed its way out</span>
+        <p>Start over is on 21 of the 22 pages. The page that offers to rotate the speaker or ask them nicely has only its breadcrumb, so the one escape hatch I designed to be everywhere isn't quite everywhere. A rule only holds if it holds on the last page too.</p>
       </div>
     </section>
 
