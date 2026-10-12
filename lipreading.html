@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lip Reading — bridgit jung</title>
+  <meta name="description" content="Lip Reading: rebuilding Olivia Ting's choose-your-own-adventure flowchart as 22 linked pages a screen reader can play. Accessibility case study by Bridgit Jung." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/tiles/logo-tile.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="canonical" href="https://bridgitjung.me/lipreading" />
+  <meta name="author" content="Bridgit Jung" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Bridgit Jung" />
+  <meta property="og:title" content="Lip Reading — bridgit jung" />
+  <meta property="og:description" content="Lip Reading: rebuilding Olivia Ting's choose-your-own-adventure flowchart as 22 linked pages a screen reader can play. Accessibility case study by Bridgit Jung." />
+  <meta property="og:url" content="https://bridgitjung.me/lipreading" />
+  <meta property="og:image" content="https://bridgitjung.me/assets/brand/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="bridgit jung — product designer crafting solutions with and for people" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lip Reading — bridgit jung" />
+  <meta name="twitter:description" content="Lip Reading: rebuilding Olivia Ting's choose-your-own-adventure flowchart as 22 linked pages a screen reader can play. Accessibility case study by Bridgit Jung." />
+  <meta name="twitter:image" content="https://bridgitjung.me/assets/brand/og-image.png" />
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="bridgit jung, home">
+      <img src="assets/tiles/logo-tile.png" alt="" width="42" height="42" />
+      <span>bridgit jung</span>
+    </a>
+    <nav class="topnav" aria-label="Main">
+      <a href="index.html" aria-current="page">work</a>
+      <a href="art.html">play</a>
+      <a href="about.html">about</a>
+      <a href="https://drive.google.com/file/d/1Nah2J1dNrO1BNFZ-xkhOoM-00jr4Ef2p/view?usp=sharing" target="_blank" rel="noopener">resume ↗</a>
+    </nav>
+  </header>
+
+  <main class="cs">
+    <a class="back-link" href="index.html">← all work</a>
+
+    <div class="cs-cover">
+      <img src="assets/lipreading/lipreading-cover.webp" alt="One page of the rebuilt flowchart: the title Lip Reading, a Part I: Speaker Evaluation banner, a breadcrumb of previous answers, the question Is the speaker facing you, and YES, NO and Start over buttons" width="1348" height="958" />
+    </div>
+
+    <header class="cs-header">
+      <p class="cs-kicker">Lip Reading:</p>
+      <h1>Making a flowchart about lipreading playable by ear</h1>
+      <ul class="tags">
+        <li>Accessibility</li>
+        <li>Front-End</li>
+      </ul>
+      <ul class="cs-meta">
+        <li><strong>Role:</strong> Accessibility &amp; Front-End Design</li>
+        <li><strong>Team:</strong> Reco(r)ding CripTech</li>
+        <li><strong>Date:</strong> February 2024</li>
+        <li><strong>Tools:</strong> HTML, CSS, ARIA, VoiceOver</li>
+      </ul>
+    </header>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <p class="lede">I turned Olivia Ting's choose-your-own-adventure poster about lipreading into 22 linked web pages, so a blind or low-vision visitor can move through it choice by choice and arrive at the punchline themselves.</p>
+      <p>Olivia Ting is a hard of hearing artist. Her installation <em>Song Without Words</em> showed at the E.A.A.T. exhibition at UC Irvine's Beall Center from September 2023 to January 2024, and beside it hung "Lip Reading": a deadpan flowchart of everything it takes to understand a single sentence.</p>
+      <img class="fig" src="assets/lipreading/lipreading-poster.webp" alt="Olivia Ting's Lip Reading flowchart poster, a tall branching diagram of yes and no questions running from Does the speaker have a beard down to a final decoded sentence" loading="lazy" />
+      <p class="caption">"Lip Reading" © Olivia Ting.</p>
+      <p><strong>Part I: Speaker Evaluation</strong> asks whether lipreading is even possible. Beard? You're out of luck. Hand over the mouth? Slap the hand away. <strong>Part II: Actual Lipreading</strong> stitches together the sounds you can see and the ones you can hear, guesses, rearranges the spaces, and lands on: <em>"Shall we stop for a quick coffee and a sandwich?"</em></p>
+      <p><a class="accent" href="https://recordingcriptech.groundworks.io/" target="_blank" rel="noopener">Reco(r)ding CripTech</a>, a process archive built by a2ru with Leonardo/ISAST, was bringing this work online. The team framed certain artifacts as <strong>access experiments</strong>: a chance to go past the original format instead of describing it from outside. This flowchart was one of two.</p>
+    </section>
+
+    <section id="problem">
+      <h2>The problem</h2>
+      <p class="lede">The meaning lives in the choosing. The standard fixes all flatten it.</p>
+      <p>A flowchart is a picture, so the usual move is to describe it. Each option I considered gave up the thing that makes the piece work:</p>
+      <div class="feature-grid">
+        <div class="card">
+          <span class="card-label">Alt text or audio description</span>
+          <p>Summarises the chart from outside it. You hear what the joke is instead of walking into it.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">A tagged PDF</span>
+          <p>Needs one reading order. A branching diagram doesn't have one — that's the point of it.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">Sounds typed as text</span>
+          <p>"Ch_ll qu_t" is read aloud as "C, H, underscore, L, L." The fragments stop sounding like speech.</p>
+        </div>
+      </div>
+      <p><strong>So: how might we let screen reader and keyboard users play the flowchart, rather than be told about it?</strong></p>
+    </section>
+
+    <section id="process">
+      <h2>One poster, rebuilt as 22 linked pages</h2>
+      <p>I gave every box on the poster its own page, and every answer its own link. Seven dated builds over four weeks, from the first pass on 13 February 2024 to the version handed off on 11 March.</p>
+      <div class="card">
+        <span class="card-label">From a form to plain links</span>
+        <p>My first prototype made each question a set of radio buttons with a Submit button and a JavaScript redirect. It worked, but it put a form between the reader and a question that only ever had two answers — and it depended on script to go anywhere.</p>
+        <p>I replaced it with plain <code>&lt;a href&gt;</code> links styled as boxes. Links are focusable and announced by a screen reader with nothing else attached. The final build has no JavaScript in it at all.</p>
+      </div>
+      <p>The styling follows Ting's poster rather than my own taste: Barlow Condensed, centred, the part title reversed out of a gray banner, and each choice a box with a 3px black border.</p>
+    </section>
+
+    <section id="breadcrumbs">
+      <h2>A breadcrumb that records answers, not just pages</h2>
+      <p>Moving one question per page solves the reading order but creates a new problem: you lose your place. A normal breadcrumb lists pages. Here the pages aren't the story — the <em>answers</em> are.</p>
+      <p>So the trail records both, in the format <strong>question → choice → question</strong>:</p>
+      <div class="card">
+        <span class="card-label">The trail partway through Part I</span>
+        <p>Does the speaker have a beard? &gt; No &gt; Is the speaker's mouth VISIBLE? &gt; No &gt; Is the speaker facing you?</p>
+      </div>
+      <p>Previous questions are links, so any earlier decision can be revisited. The choices and the current question are plain text. Two things had to give:</p>
+      <ul>
+        <li><strong>Part I collapses.</strong> Three different paths lead into Part II, so carrying the full Part I trail would make every Part II page start differently. Part II trails open with a single link, "Part I: Speaker Evaluation."</li>
+        <li><strong>Two branches merge.</strong> The SEE and HEAR branches rejoin when the sounds get added together, so that trail shows both paths joined by a slash.</li>
+      </ul>
+    </section>
+
+    <section id="dead-ends">
+      <h2>Every dead end gets an exit</h2>
+      <p>The poster is full of jokes that stop you dead — "you're out of luck," and so on. On paper your eye just wanders back. In a browser, a dead end with no way out is a trap.</p>
+      <ul>
+        <li><strong>Start over</strong> appears on all 22 pages, and returns to the first question.</li>
+        <li><strong>Go back</strong> appears only on the six dead ends, and returns to the question that sent you there.</li>
+      </ul>
+      <p>Ordinary question pages don't get a Go back, because the breadcrumb above them already links to every previous question. Adding one would mean two controls doing the same job on the same page.</p>
+    </section>
+
+    <section id="sounds">
+      <h2>Voicing sounds a screen reader wants to spell</h2>
+      <p>Part II is where the piece does its real work. It shows the sounds you can see on a speaker's lips in blue, the ones you can hear in pink, and asks you to assemble a sentence out of the fragments. The fragments are single letters and letter pairs — and a screen reader reads letters as letters.</p>
+      <p>I tried four approaches:</p>
+      <div class="feature-grid">
+        <div class="card">
+          <span class="card-label">Plain text — rejected</span>
+          <p>VoiceOver spelled it out: "C, H." The fragment stopped being a sound.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">aria-label on each fragment — rejected</span>
+          <p>Closer, but VoiceOver announced "chuh, group: ch" — the label and the letters both — and the custom spacing was lost.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">SSML phonemes — ruled out</span>
+          <p>The precise tool for this, and not supported in HTML5.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">Images with phonetic alt text — shipped</span>
+          <p>The fragments became images, and the alt text spelled them the way they sound. One clean announcement, and the spacing of the original is preserved as part of the picture.</p>
+        </div>
+      </div>
+      <p>I tested the spellings in VoiceOver and chose whatever actually sounded right, which was not always the obvious transcription: <em>ch</em> became "chuh", <em>qu</em> became "qwuh", and <em>t</em> and <em>r</em> became "tough" and "rough" rather than "tuh" and "ruh".</p>
+      <div class="fig-row">
+        <div>
+          <img src="assets/lipreading/seeing-sounds.webp" alt="The sounds you can see, in blue: ch, ll, qu, t, m, v, r, w, ck, t, vv, nt, pr, j" loading="lazy" />
+          <p class="caption">Sounds you can see. Read aloud as: chuh, luh, qwuh, tough, muh, vuh, rough, wuh, cuh, tough, vuh, ent, pruh, juh.</p>
+        </div>
+        <div>
+          <img src="assets/lipreading/hearing-sounds.webp" alt="The sounds you can hear, in pink: a, ee, a, o, a, i, a, ee, a, er, a, i" loading="lazy" />
+          <p class="caption">Sounds you can hear. Read aloud as: ah, ee, ah, oh, ah, ih, ah, ee, a, er, a, ih.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="result">
+      <h2>What a listener actually hears</h2>
+      <p>Put together, the two sets of fragments become something you can almost read — and then, after a nudge about lip shapes and a rearranging of the spaces, something you can.</p>
+      <img class="fig" src="assets/lipreading/add-sounds.webp" alt="The seen and heard sounds combined into a single run of nonsense syllables: Chall que tom vora wick tovvee anter pruh ij" loading="lazy" />
+      <p class="caption">Both sets added together.</p>
+      <img class="fig" src="assets/lipreading/lip-shapes.webp" alt="The syllables resolved into lip shapes that look similar: Shall we top for a qwick toffee anter am rich" loading="lazy" />
+      <p class="caption">Swapped for lip shapes that look the same from outside.</p>
+      <img class="fig" src="assets/lipreading/keep-going.webp" alt="The sentence with the spaces rearranged: Shall we Stop for a qwick Coffee anD er Samrich" loading="lazy" />
+      <p class="caption">Spaces rearranged.</p>
+      <img class="fig" src="assets/lipreading/lipreading-voila.webp" alt="The final page of the flowchart, showing the full breadcrumb trail of every choice made through Part II and the decoded sentence: SHALL WE STOP FOR A QUICK COFFEE AND A SANDWICH?" loading="lazy" />
+      <p class="caption">The last page, with the whole path still visible above the answer.</p>
+      <p>The flowchart is live in the archive beside the poster it translates.</p>
+      <p><a class="accent" href="https://recordingcriptech.groundworks.io/access_experiments/lipreading/" target="_blank" rel="noopener">Play the flowchart ↗</a></p>
+    </section>
+
+    <section id="audit">
+      <h2>What I'd fix, looking back at my own code</h2>
+      <p>This is an accessibility project, so it should be held to its own standard. Reading my 2024 build now, four things fall short:</p>
+      <div class="card">
+        <span class="card-label">Focus fades instead of announcing itself</span>
+        <p>Links turn gray on hover and focus, which lands at 2.7:1 against white — below the 4.5:1 minimum, and on the one state a keyboard user depends on. It should invert the box and add a visible focus ring.</p>
+      </div>
+      <div class="card">
+        <span class="card-label">Titles and language on only 4 of 22 pages</span>
+        <p>Four pages carry a <code>&lt;title&gt;</code> and a declared language. The rest announce nothing useful on load, and leave the screen reader to guess pronunciation. Both belong on all 22.</p>
+      </div>
+      <div class="card">
+        <span class="card-label">Seen and heard told apart by hue alone</span>
+        <p>The blue and the pink each pass against white, but they sit at 1.16:1 against <em>each other</em> — so the distinction carrying Part II's meaning disappears for a colour-blind reader. It needs a second cue: weight, an underline, or a label.</p>
+      </div>
+      <div class="card">
+        <span class="card-label">The breadcrumb isn't marked up as one</span>
+        <p>It behaves like a breadcrumb but it's a <code>&lt;div&gt;</code> of paragraphs and links, so a screen reader can't skip to it or announce what it is. It should be a <code>&lt;nav aria-label="Breadcrumb"&gt;</code> wrapping an ordered list.</p>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <h2>Reflection</h2>
+      <div class="card">
+        <span class="card-label">Accessible and fun aren't separate goals</span>
+        <p>The brief could have been met with a paragraph of alt text. It would have been compliant and it would have thrown away the piece. What made this worth doing was treating the joke as the thing to preserve.</p>
+      </div>
+      <div class="card">
+        <span class="card-label">Test before trusting the pattern</span>
+        <p>ARIA labels are the textbook answer for "make this announce differently," and in VoiceOver they announced both the label and the letters underneath. I only learned that by listening. The documented fix and the working fix weren't the same.</p>
+      </div>
+      <div class="card">
+        <span class="card-label">Simple holds up</span>
+        <p>The scripted form was the more sophisticated build. Plain links were more robust, more navigable, and needed no JavaScript to work at all.</p>
+      </div>
+      <p>Where I'd take it next: fix the four audit items in the build itself, test with blind and low-vision readers outside the team, and record the sound fragments as audio with Ting rather than approximating them in text. "Sorting It Out," the companion flowchart, is still waiting for the same treatment.</p>
+      <p class="caption">Flowchart artwork © Olivia Ting. Built for Reco(r)ding CripTech, a process archive by a2ru with Leonardo/ISAST. With Daragh Byrne (Carnegie Mellon), Veronica Stanich (University of Michigan), and Luke Kudryashov, who reviewed it for accessibility.</p>
+    </section>
+
+    <p class="cs-outro">Thank you for reading! If you have any questions about this project, feel free to email me at <a class="accent" href="mailto:bridgit.jung@gmail.com">bridgit.jung@gmail.com</a>! <span class="sparkle">✶⋆.˚</span></p>
+
+    <a class="next-project" href="freshhold.html">
+      <span class="np-text">
+        <span class="np-label">next project</span>
+        <span class="np-title">FreshHold</span>
+        <span class="np-sub">Managing and keeping food fresh</span>
+      </span>
+      <span class="np-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <footer class="site-footer">
+      <p>made with ♡ by bridgit jung © 2026</p>
+      <p class="footer-links"><a href="mailto:bridgit.jung@gmail.com">email</a><a href="https://www.linkedin.com/in/bridgit-jung" target="_blank" rel="noopener">linkedin ↗</a><a href="https://drive.google.com/file/d/1Nah2J1dNrO1BNFZ-xkhOoM-00jr4Ef2p/view?usp=sharing" target="_blank" rel="noopener">resume ↗</a></p>
+    </footer>
+  </main>
+
+  <div class="tile-floor" aria-hidden="true"></div>
+
+  <script src="js/reveal.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/backtotop.js"></script>
+  <script src="js/tiles.js"></script>
+  <script src="js/toc.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
