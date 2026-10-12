@@ -98,7 +98,6 @@ main {
   align-items: baseline;
   gap: 16px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--line);
   font-family: var(--mono);
   font-size: 13px;
   color: var(--muted);
@@ -128,11 +127,16 @@ main {
 .projects {
   padding-top: 48px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 80px 32px;
+  grid-template-columns: 1fr;
+  gap: 104px;
 }
-.project { display: flex; flex-direction: column; gap: 40px; }
-.projects { column-gap: 56px; }
+/* each case study owns a full row: cover on the left, text alongside it */
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
 .project-figure { position: relative; }
 .project-media {
   display: block;
@@ -156,9 +160,9 @@ main {
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 .project-info h2 a.accent { color: var(--text); text-decoration: none; }
 .project-info h2 a.accent:hover { text-decoration: underline; }
@@ -368,6 +372,9 @@ main {
 }
 .tile-info[hidden] { display: none; }
 .tile-info p { margin: 10px 0 0; }
+.tile-info-fig { margin: 12px 0 0; }
+.tile-info-fig img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.tile-info-fig figcaption { margin-top: 6px; font-family: var(--mono); font-size: 11px; color: var(--muted); }
 .tile-info mark { padding: 0 4px; border-radius: 3px; }
 .tile-info-kicker { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
@@ -441,12 +448,11 @@ main.cs { max-width: var(--page); }
   margin: 0 0 24px;
   padding: 24px 0 0;
   list-style: none;
-  border-top: 1px solid var(--line);
 }
 .cs-meta li { display: flex; flex-direction: column; gap: 6px; }
 .cs-meta strong { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0.04em; text-transform: lowercase; }
 
-.cs section { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); }
+.cs section { margin-top: 56px; padding-top: 20px; }
 .cs h2 {
   font-family: var(--mono);
   font-weight: 400;
@@ -517,8 +523,6 @@ main.cs { max-width: var(--page); }
 .next-project {
   margin-top: 56px;
   padding: 40px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -598,7 +602,6 @@ main.cs { max-width: var(--page); }
   gap: 4px 24px;
   padding: 14px 0;
   margin: 0;
-  border-bottom: 1px solid var(--line);
 }
 .exp-list .role { font-weight: 500; }
 .exp-list .role em { font-style: normal; font-weight: 400; color: var(--muted); }
@@ -714,7 +717,7 @@ main.cs { max-width: var(--page); }
   .hero { padding: 48px 0 72px; }
   .hero-intro { font-size: 32px; }
   .hero-meta { font-size: 18px; }
-  .projects { grid-template-columns: 1fr; gap: 56px; }
+  .projects { gap: 56px; }
   .play-strip { padding-top: 96px; }
   .play-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .play-grid a:nth-child(n + 4) { display: none; }
@@ -731,7 +734,8 @@ main.cs { max-width: var(--page); }
   .art-grid { gap: 10px; }
   .sticker { width: clamp(64px, 22%, 100px); }
   .sticker-br, .sticker-br.sticker-lg { right: -8px; bottom: -14px; }
-  .project { gap: 28px; }
+  .project { grid-template-columns: 1fr; gap: 28px; }
+  .project-info h2 { font-size: 24px; }
   .back-to-top { right: 16px; bottom: 16px; }
 }
 

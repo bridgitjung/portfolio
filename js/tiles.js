@@ -195,6 +195,10 @@
     const card = el("div", "tile-info", { id: "tile-info", role: "note", hidden: "" });
     card.innerHTML =
       '<span class="tile-info-kicker">Taiwanese majolica tiles · 花磚</span>' +
+      '<figure class="tile-info-fig">' +
+      '<img src="assets/tiles/majolica-wall.webp" width="760" height="570" loading="lazy" alt="A wall of framed Taiwanese majolica tiles, each a different glazed pattern of flowers, fruit and geometry" />' +
+      '<figcaption>Photo: <a href="https://www.chiayi.gov.tw/en/News_Content.aspx?n=11131&amp;s=597435" target="_blank" rel="noopener">Chiayi City Government</a></figcaption>' +
+      '</figure>' +
       "<p>From about the 1910s to the 1930s, bright glazed tiles called huazhuan, or \u201cflower bricks,\u201d covered the walls, gates and family shrines of traditional homes across Taiwan. Most were made in Japan, which had adapted British Victorian tile-making.</p>" +
       "<p>Every pattern carried a wish: flowers for beauty, fruit for abundance and many descendants, birds and animals for blessings and protection, and characters like 福 for good fortune.</p>" +
       "<p>My tile is my own take on the flower pattern, with my initial hidden inside: look along the sides of the inner red square and you\u2019ll find a <mark>B</mark>.</p>";
