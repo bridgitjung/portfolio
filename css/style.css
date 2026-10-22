@@ -70,18 +70,8 @@ mark { background: var(--accent); color: var(--text); padding: 0 6px; border-rad
   position: relative;
   z-index: 10;
 }
-.brand { display: flex; align-items: center; gap: 14px; }
-.brand img {
-  width: 42px;
-  height: 42px;
-  border-radius: 7px;
-  display: block;
-  transform: perspective(240px) rotateX(16deg) rotateY(-8deg);
-  box-shadow: 0.5px 1.5px 0 var(--coral-dk), 1px 2.5px 0 var(--coral-dkr);
-  transition: transform 0.25s ease;
-}
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 600; }
 .brand:hover { opacity: 1; }
-.brand:hover img { transform: perspective(240px) rotateX(16deg) rotateY(-8deg) scale(1.08); }
 .topnav { display: flex; gap: 32px; flex-wrap: wrap; }
 .topnav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
 
