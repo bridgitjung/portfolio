@@ -689,7 +689,9 @@ main.cs { max-width: var(--page); }
   .tile-play { display: none; }
   body { font-size: 17px; }
   .topbar, main { padding: 0 20px; }
-  .topbar { min-height: 80px; padding-top: 12px; padding-bottom: 12px; }
+  .topbar { min-height: 80px; padding-top: 12px; padding-bottom: 12px; transition: min-height 0.25s ease, padding 0.25s ease, row-gap 0.25s ease; }
+  /* once scrolled, the sticky bar slims down (class set in js/navline.js) */
+  .topbar.scrolled { min-height: 0; padding-top: 6px; padding-bottom: 8px; row-gap: 4px; }
   .topnav { gap: 20px; }
   .hero { padding: 24px 0 48px; }
   .hero-intro { font-size: 28px; }

@@ -44,3 +44,17 @@
     } catch (e) {}
   });
 })();
+
+// Slim the sticky top bar once the page is scrolled. Turns on past 40px and
+// off under 8px so the height change can't flicker right at the threshold.
+(function () {
+  const bar = document.querySelector(".topbar");
+  if (!bar) return;
+  function update() {
+    const y = window.scrollY;
+    if (y > 40) bar.classList.add("scrolled");
+    else if (y < 8) bar.classList.remove("scrolled");
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+})();
