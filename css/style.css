@@ -108,7 +108,7 @@ main {
 .hero-text { display: flex; flex-direction: column; gap: 20px; max-width: 640px; }
 .hero-intro {
   margin: 0;
-  font-size: clamp(28px, 3.4vw, 36px);
+  font-size: 36px;
   line-height: 1.25;
   font-weight: 400;
   letter-spacing: -0.02em;
@@ -713,7 +713,7 @@ main.cs { max-width: var(--page); }
   .topbar.scrolled { min-height: 0; padding-top: 6px; padding-bottom: 8px; row-gap: 4px; }
   .topnav { gap: 20px; }
   .hero { padding: 24px 0 48px; }
-  .hero-intro { font-size: clamp(20px, 6.8vw, 28px); }
+  .hero-intro { font-size: clamp(24px, 7.5vw, 28px); }
   .hero-meta { font-size: 16px; }
   .projects { gap: 56px; }
   .play-strip { padding-top: 96px; }
