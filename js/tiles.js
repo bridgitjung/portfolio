@@ -189,9 +189,9 @@
     reset.textContent = "reset";
     hint.appendChild(reset);
 
-    // "what is this?" — about Taiwanese tiles and the hidden B
-    const info = el("button", "tile-info-btn", { type: "button", "aria-expanded": "false", "aria-controls": "tile-info" });
-    info.textContent = "what is this?";
+    // "?" button — about Taiwanese tiles and the hidden B
+    const info = el("button", "tile-info-btn", { type: "button", "aria-label": "what is this?", title: "what is this?", "aria-expanded": "false", "aria-controls": "tile-info" });
+    info.textContent = "?";
     const card = el("div", "tile-info", { id: "tile-info", role: "note", hidden: "" });
     card.innerHTML =
       '<span class="tile-info-kicker">Taiwanese majolica tiles · 花磚</span>' +

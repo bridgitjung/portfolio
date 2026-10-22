@@ -333,26 +333,34 @@ main {
 
 .tile-hint { position: relative; }
 .tile-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   font: inherit;
+  font-size: 13px;
   color: inherit;
   background: transparent;
-  border: 0;
-  padding: 6px 4px;
-  min-height: 32px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
   cursor: pointer;
 }
+.tile-info-btn:hover,
+.tile-info-btn[aria-expanded="true"] { color: var(--text); border-color: var(--text); }
 .tile-info {
   position: absolute;
   right: -8px;
-  bottom: calc(100% + 12px);
-  z-index: 5;
+  top: calc(100% + 12px);
+  z-index: 20;
+  white-space: normal;
   width: min(360px, calc(100vw - 40px));
   padding: 20px 22px;
   border-radius: 14px;
   background: #fff;
   border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
   font-family: var(--sans);
   font-size: 14px;
   line-height: 1.6;
@@ -366,10 +374,10 @@ main {
 .tile-info mark { padding: 0 4px; border-radius: 3px; }
 .tile-info-kicker { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
-/* phones: "what is this?" drops to its own line under the hint */
+/* phones: center the hint row; the card centers under it */
 @media (max-width: 860px) {
-  .tile-hint { flex-wrap: wrap; row-gap: 10px; justify-content: center; }
-  .tile-info-btn { flex-basis: 100%; text-align: center; padding-left: 0; }
+  .tile-hint { justify-content: center; }
+  .tile-info { right: 50%; transform: translateX(50%); }
 }
 
 /* phones: close the gap between the hero copy and the tiles */
