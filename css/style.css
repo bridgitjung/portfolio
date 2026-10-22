@@ -128,7 +128,7 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: 56px;
-  align-items: start;
+  align-items: center;
 }
 .project-figure { position: relative; }
 .project-media {
