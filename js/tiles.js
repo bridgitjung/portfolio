@@ -327,8 +327,7 @@
     // project shows on open.
     const BAND_TOP = 100, BAND_BOT = 422, PAD_TOP = 18, PAD_BOT = 39;
     function fit() {
-      const maxW = window.innerWidth < 860 ? 280 : 360;
-      const w = Math.min(maxW, root.parentElement.clientWidth);
+      const w = Math.min(360, root.parentElement.clientWidth);
       scale = w / 500;
       const boxH = BAND_BOT - BAND_TOP + PAD_TOP + PAD_BOT;
       const top = BAND_TOP - PAD_TOP;

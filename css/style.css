@@ -364,17 +364,6 @@ main {
 .tile-info mark { padding: 0 4px; border-radius: 3px; }
 .tile-info-kicker { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
-/* phones: center the hint row; the card centers under it */
-@media (max-width: 860px) {
-  .tile-hint { justify-content: center; }
-  .tile-info { right: 50%; transform: translateX(50%); }
-}
-
-/* phones: close the gap between the hero copy and the tiles */
-@media (max-width: 860px) {
-  .hero { gap: 16px; }
-}
-
 /* tile band at the bottom of every page */
 .tile-floor { position: relative; margin-top: 24px; height: 280px; overflow: hidden; }
 .floor-stage {
@@ -691,8 +680,8 @@ main.cs { max-width: var(--page); }
 
 /* ================= responsive ================= */
 @media (max-width: 860px) {
-  .hero { flex-direction: column; align-items: flex-start; }
-  .tile-play { align-self: center; }
+  /* phones: hero tiles hidden; the tile band at the bottom stays */
+  .tile-play { display: none; }
   body { font-size: 17px; }
   .topbar, main { padding: 0 20px; }
   .topbar { min-height: 80px; padding-top: 12px; padding-bottom: 12px; }
