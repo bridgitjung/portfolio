@@ -105,27 +105,30 @@ main {
 
 /* ---- hero ---- */
 .hero {
-  padding: 96px 0 112px;
+  padding: 32px 0 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 48px;
 }
-.hero-text { display: flex; flex-direction: column; gap: 28px; max-width: 640px; }
+.hero-text { display: flex; flex-direction: column; gap: 20px; max-width: 640px; }
 .hero-intro {
   margin: 0;
-  font-size: 44px;
+  font-size: 36px;
   line-height: 1.25;
   font-weight: 400;
   letter-spacing: -0.02em;
 }
-.hero-meta { margin: 0; font-size: 20px; line-height: 1.6; color: var(--muted); }
+.hero-meta { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 18px; line-height: 1.5; color: var(--muted); }
+.hero-meta .logo { display: inline-block; height: 20px; width: auto; vertical-align: -3px; margin-left: 2px; }
+.hero-meta img[src*="synopsys"] { border-radius: 4px; }
+.hero-meta .paren { white-space: nowrap; }
 .hero-meta a { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .hero-status { margin: 0; font-family: var(--mono); font-size: 13px; color: var(--muted); }
 
 /* ---- projects ---- */
 .projects {
-  padding-top: 48px;
+  padding-top: 24px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 104px;
@@ -273,7 +276,7 @@ main {
 
 /* ================= tiles ================= */
 /* draggable hero tiles */
-.tile-play { flex-shrink: 0; width: 500px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.tile-play { flex-shrink: 0; width: 360px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .tile-stage-wrap { width: 500px; height: 500px; position: relative; }
 .tile-stage { position: absolute; left: 0; top: 0; width: 500px; height: 500px; perspective: 1600px; transform-origin: 0 0; }
 .tile-plane {
@@ -313,7 +316,7 @@ main {
   display: none;
 }
 .tile-ghost.on { display: block; }
-.tile-hint { display: flex; gap: 20px; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.tile-hint { display: flex; gap: 14px; align-items: center; white-space: nowrap; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .tile-reset {
   font: inherit;
   color: inherit;
@@ -686,19 +689,16 @@ main.cs { max-width: var(--page); }
 .back-to-top:hover { border-color: var(--text); }
 
 /* ================= responsive ================= */
-@media (max-width: 1100px) {
+@media (max-width: 860px) {
   .hero { flex-direction: column; align-items: flex-start; }
   .tile-play { align-self: center; }
-}
-
-@media (max-width: 860px) {
   body { font-size: 17px; }
   .topbar, main { padding: 0 20px; }
   .topbar { min-height: 80px; padding-top: 12px; padding-bottom: 12px; }
   .topnav { gap: 20px; }
-  .hero { padding: 48px 0 72px; }
-  .hero-intro { font-size: 32px; }
-  .hero-meta { font-size: 18px; }
+  .hero { padding: 24px 0 48px; }
+  .hero-intro { font-size: 28px; }
+  .hero-meta { font-size: 16px; }
   .projects { gap: 56px; }
   .play-strip { padding-top: 96px; }
   .play-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

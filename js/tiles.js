@@ -323,15 +323,16 @@
     });
 
     // The tilted plane leaves the 500-tall stage mostly empty: the tiles sit
-    // between y=100 and y=422. On phones show just that band, tight above and
-    // a little looser below, so the tiles start sooner after the hero text.
+    // between y=100 and y=422. Show just that band, tight above and a little
+    // looser below, and cap the width so the hero stays short and the first
+    // project shows on open.
     const BAND_TOP = 100, BAND_BOT = 422, PAD_TOP = 18, PAD_BOT = 39;
     function fit() {
-      const w = Math.min(500, root.parentElement.clientWidth);
+      const maxW = window.innerWidth < 860 ? 280 : 360;
+      const w = Math.min(maxW, root.parentElement.clientWidth);
       scale = w / 500;
-      const narrow = window.innerWidth < 860;
-      const boxH = narrow ? BAND_BOT - BAND_TOP + PAD_TOP + PAD_BOT : 500;
-      const top = narrow ? BAND_TOP - PAD_TOP : 0;
+      const boxH = BAND_BOT - BAND_TOP + PAD_TOP + PAD_BOT;
+      const top = BAND_TOP - PAD_TOP;
       root.style.width = w + "px";
       wrap.style.width = w + "px";
       wrap.style.height = boxH * scale + "px";
