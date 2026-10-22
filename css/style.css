@@ -70,7 +70,7 @@ mark { background: var(--accent); color: var(--text); padding: 0 6px; border-rad
   position: relative;
   z-index: 10;
 }
-.brand { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.brand { display: flex; align-items: center; gap: 8px; }
 .brand:hover { opacity: 1; }
 .topnav { display: flex; gap: 32px; flex-wrap: wrap; }
 .topnav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
