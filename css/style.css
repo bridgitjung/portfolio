@@ -72,8 +72,12 @@ mark { background: var(--accent); color: var(--text); padding: 0 6px; border-rad
 }
 .brand { display: flex; align-items: center; gap: 8px; }
 .brand:hover { opacity: 1; }
-.topnav { display: flex; gap: 32px; flex-wrap: wrap; }
+.topnav { display: flex; gap: 32px; flex-wrap: wrap; position: relative; }
 .topnav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
+/* js/navline.js swaps the underline for a line that slides between pages */
+.topnav.has-line a[aria-current="page"] { text-decoration: none; }
+.nav-line { position: absolute; left: 0; top: 0; height: 1px; background: currentColor; pointer-events: none; }
+.nav-line.slide { transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), width 0.5s cubic-bezier(0.65, 0, 0.35, 1); }
 
 /* ---- layout ---- */
 main {
@@ -680,6 +684,7 @@ main.cs { max-width: var(--page); }
 
 /* ================= responsive ================= */
 @media (max-width: 860px) {
+  .topbar { position: sticky; top: 0; background: var(--bg); }
   /* phones: hero tiles hidden; the tile band at the bottom stays */
   .tile-play { display: none; }
   body { font-size: 17px; }
