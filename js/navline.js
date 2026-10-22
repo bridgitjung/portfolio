@@ -39,8 +39,10 @@
   window.addEventListener("resize", () => draw(spot(current)));
 
   window.addEventListener("pagehide", () => {
+    const s = spot(current);
+    if (!s.w) return; // nav folded into the phone menu: nothing to slide from
     try {
-      sessionStorage.setItem(KEY, JSON.stringify(spot(current)));
+      sessionStorage.setItem(KEY, JSON.stringify(s));
     } catch (e) {}
   });
 })();
@@ -57,4 +59,33 @@
   }
   window.addEventListener("scroll", update, { passive: true });
   update();
+})();
+
+// Phones: fold the nav links into a hamburger menu
+(function () {
+  const bar = document.querySelector(".topbar");
+  const nav = bar && bar.querySelector(".topnav");
+  if (!nav) return;
+  nav.id = nav.id || "site-nav";
+  const btn = document.createElement("button");
+  btn.className = "nav-toggle";
+  btn.type = "button";
+  btn.setAttribute("aria-label", "Menu");
+  btn.setAttribute("aria-controls", nav.id);
+  btn.setAttribute("aria-expanded", "false");
+  btn.innerHTML = "<span></span><span></span><span></span>";
+  nav.before(btn);
+  bar.classList.add("has-menu");
+
+  function setOpen(on) {
+    bar.classList.toggle("menu-open", on);
+    btn.setAttribute("aria-expanded", on ? "true" : "false");
+  }
+  btn.addEventListener("click", () => setOpen(!bar.classList.contains("menu-open")));
+  nav.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
+  document.addEventListener("click", (e) => { if (!bar.contains(e.target)) setOpen(false); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && bar.classList.contains("menu-open")) { setOpen(false); btn.focus(); }
+  });
+  window.matchMedia("(min-width: 861px)").addEventListener("change", (e) => { if (e.matches) setOpen(false); });
 })();

@@ -73,6 +73,24 @@ mark { background: var(--accent); color: var(--text); padding: 0 6px; border-rad
 .brand { display: flex; align-items: center; gap: 8px; }
 .brand:hover { opacity: 1; }
 .topnav { display: flex; gap: 32px; flex-wrap: wrap; position: relative; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  padding: 0 9px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.nav-toggle span { display: block; height: 1.5px; background: currentColor; transition: transform 0.25s ease, opacity 0.2s ease; }
+.menu-open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 .topnav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
 /* js/navline.js swaps the underline for a line that slides between pages */
 .topnav.has-line a[aria-current="page"] { text-decoration: none; }
@@ -711,10 +729,29 @@ main.cs { max-width: var(--page); }
   .tile-play { display: none; }
   body { font-size: 17px; }
   .topbar, main { padding: 0 20px; }
-  .topbar { min-height: 80px; padding-top: 12px; padding-bottom: 12px; transition: min-height 0.25s ease, padding 0.25s ease, row-gap 0.25s ease; }
+  .topbar { min-height: 64px; padding-top: 10px; padding-bottom: 10px; transition: min-height 0.25s ease, padding 0.25s ease; }
   /* once scrolled, the sticky bar slims down (class set in js/navline.js) */
-  .topbar.scrolled { min-height: 0; padding-top: 6px; padding-bottom: 8px; row-gap: 4px; }
+  .topbar.scrolled { min-height: 52px; padding-top: 4px; padding-bottom: 4px; }
   .topnav { gap: 20px; }
+  /* phones: links fold into a menu under the hamburger (js/navline.js) */
+  .nav-toggle { display: flex; }
+  .topbar.has-menu .topnav { display: none; }
+  .topbar.menu-open .topnav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 4px 20px 16px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+  }
+  .topbar.menu-open .topnav a { padding: 12px 0; }
+  .topbar.has-menu .nav-line { display: none; }
+  .topbar.has-menu .topnav a[aria-current="page"] { text-decoration: underline; }
   .hero { padding: 24px 0 48px; }
   .hero-intro { font-size: clamp(24px, 7.5vw, 28px); }
   .hero-meta { font-size: 16px; }
