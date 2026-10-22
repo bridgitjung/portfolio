@@ -1,3 +1,37 @@
+// ---- intro: cycle through roles in the highlight ----
+(function () {
+  const mark = document.querySelector(".hero-intro .role");
+  if (!mark || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const word = mark.querySelector(".role-word");
+  const article = document.querySelector(".hero-intro .role-article");
+  const roles = mark.dataset.roles.split("|");
+  let i = 0;
+
+  // pin the highlight's width so it can ease between words
+  const fit = () => { mark.style.width = ""; mark.style.width = mark.getBoundingClientRect().width + "px"; };
+  fit();
+  if (document.fonts) document.fonts.ready.then(fit);
+  window.addEventListener("resize", fit);
+
+  setInterval(() => {
+    word.classList.add("out");
+    setTimeout(() => {
+      i = (i + 1) % roles.length;
+      word.textContent = roles[i];
+      article.textContent = /^[aeiou]/i.test(roles[i]) ? "an" : "a";
+      word.classList.remove("out");
+      word.classList.add("in");
+      const from = mark.style.width;
+      fit();
+      const to = mark.style.width;
+      mark.style.width = from;
+      void mark.offsetWidth; // commit the old width so the change animates
+      mark.style.width = to;
+      word.classList.remove("in");
+    }, 250);
+  }, 2400);
+})();
+
 // ---- stickers: pop on tap (touch devices have no hover) ----
 document.querySelectorAll(".sticker").forEach((sticker) => {
   sticker.addEventListener("pointerdown", (e) => {

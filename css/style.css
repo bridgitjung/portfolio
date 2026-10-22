@@ -113,6 +113,25 @@ main {
   font-weight: 400;
   letter-spacing: -0.02em;
 }
+/* rotating role in the intro (js/main.js) */
+.hero-intro .role {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: bottom;
+  transition: width 0.35s ease;
+}
+.role-word { display: inline-block; transition: opacity 0.25s ease, transform 0.25s ease; }
+.role-word.out { opacity: 0; transform: translateY(-0.3em); }
+.role-word.in { opacity: 0; transform: translateY(0.3em); transition: none; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 .hero-meta { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 18px; line-height: 1.5; color: var(--muted); }
 .hero-meta .logo { display: inline-block; height: 20px; width: auto; vertical-align: -3px; margin: 0 2px; }
 .hero-meta img[src*="synopsys"] { border-radius: 4px; }
