@@ -199,7 +199,7 @@
       '<img src="assets/tiles/majolica-wall.webp" width="760" height="570" loading="lazy" alt="A wall of framed Taiwanese majolica tiles, each a different glazed pattern of flowers, fruit and geometry" />' +
       '<figcaption>Photo: <a href="https://www.chiayi.gov.tw/en/News_Content.aspx?n=11131&amp;s=597435" target="_blank" rel="noopener">Chiayi City Government</a></figcaption>' +
       '</figure>' +
-      "<p>From about the 1910s to the 1930s, bright glazed tiles called huazhuan, or \u201cflower bricks,\u201d covered the walls, gates and family shrines of traditional homes across Taiwan. Every pattern carried a wish: flowers for beauty, fruit for abundance and many descendants, birds and animals for blessings and protection, and characters like 福 for good fortune.</p>" +
+      "<p>Whenever I visit family in Taiwan, I see beautiful, traditional tiles, named huazhuan, or \u201cflower bricks.\u201d They cover the walls, gates and family shrines of traditional homes across Taiwan. Each tile contains symbols such as flowers for beauty and fruit for abundance.</p>" +
       "<p>My tile is my own take on the flower pattern, with my initial hidden inside: look along the sides of the inner red square and you\u2019ll find a <mark>B</mark>.</p>";
     hint.appendChild(info);
     hint.appendChild(card);
