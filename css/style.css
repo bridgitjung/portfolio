@@ -137,6 +137,8 @@ main {
 /* rotating role in the intro (js/main.js) */
 .hero-intro .role {
   display: inline-block;
+  padding: 0;
+  background: none;
   white-space: nowrap;
   vertical-align: bottom;
   transition: width 0.35s ease;
