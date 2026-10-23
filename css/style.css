@@ -537,6 +537,26 @@ main.cs { max-width: var(--page); }
 .embed { position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; background: var(--card); margin: 24px 0; }
 .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
+/* desktop site preview in a browser frame (js/preview.js scales the iframe) */
+.site-preview { margin: 24px 0 16px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; }
+.site-preview-bar { display: flex; align-items: center; gap: 16px; height: 36px; padding: 0 14px; border-bottom: 1px solid var(--line); background: var(--card); }
+.site-preview-dots { display: flex; gap: 6px; }
+.site-preview-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.site-preview-url { flex: 1; max-width: 320px; margin: 0 auto; padding: 3px 12px; border-radius: 6px; background: var(--bg); font-family: var(--mono); font-size: 12px; color: var(--muted); text-align: center; }
+.site-preview-screen { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.site-preview-screen iframe { position: absolute; left: 0; top: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; }
+.site-preview-link {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid var(--text);
+  border-radius: 24px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+}
+.site-preview-link:hover { background: var(--text); color: var(--bg); opacity: 1; }
+
 .cs-outro { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-top: 48px; padding-top: 20px; }
 
 .next-project {
