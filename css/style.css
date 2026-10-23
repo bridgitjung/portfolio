@@ -7,7 +7,6 @@
   --card: #ebebe5;
   --accent: #dbf2fc;      /* highlight fill */
   --coral: #ec7060;
-  --pink: #f19b9a;        /* checker pink in the tiles */
   --coral-dk: #c9604f;
   --coral-dkr: #9e4a3e;
   --mono: "Geist Mono", ui-monospace, monospace;
@@ -140,7 +139,7 @@ main {
   display: inline-block;
   padding: 0;
   background: none;
-  color: var(--pink);
+  color: #a6a6a0;
   white-space: nowrap;
   vertical-align: bottom;
   transition: width 0.35s ease;
