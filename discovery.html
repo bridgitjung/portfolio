@@ -55,8 +55,8 @@
       <h1>Giving simulation results more room, without changing how engineers read them</h1>
       <ul class="tags">
         <li>Enterprise Software</li>
-        <li>Data Visualization</li>
-        <li>Interaction Design</li>
+        <li>End-to-end Design</li>
+        <li>AI Prototyping</li>
       </ul>
       <ul class="cs-meta">
         <li><strong>Role:</strong> UX Design Engineer: end-to-end design, prototyping, and dev handoff</li>
@@ -68,7 +68,7 @@
 
     <section id="introduction">
       <h2>Introduction</h2>
-      <p class="lede"><strong>A horizontal results legend for Ansys Discovery's UX 2.0 redesign.</strong></p>
+      <p class="lede"><strong>I owned and shipped the new horizontal results legend for Ansys Discovery's UX 2.0 redesign.</strong></p>
       <p>In Ansys Discovery, engineers run a simulation and read the results off a color scale. The results legend maps each color on the model to a value.</p>
       <p>The legend originally stood upright along the side of the viewport, under and next to the dock panels. The legend and the panels fought for the same space, and the legend sat apart from the results toolbar it works with.</p>
       <img class="fig" src="assets/discovery/legend-before.webp" width="1920" height="1098" alt="The original vertical legend on the right of the viewport, beside the docked Monitors panel" loading="lazy" />
@@ -78,7 +78,7 @@
 
     <section id="key-insights">
       <h2>Key insights ✶</h2>
-      <p>I started by taking stock. I mapped every state of the current vertical legend, collected older Discovery legends, and gathered legend inspiration from other tools. Then I listed the edge cases a horizontal layout had to handle, from banded colors to results with three or more variables.</p>
+      <p>I mapped every state of the current vertical legend, collected older Discovery legends, and gathered legend inspiration from other tools. Then I listed the edge cases a horizontal layout had to handle, from banded colors to results with three or more variables.</p>
       <img class="fig" src="assets/discovery/legend-references.webp" width="1450" height="814" alt="Results legends collected from other simulation tools, laid out for comparison" loading="lazy" />
       <p class="caption">Legend references from other simulation tools.</p>
       <div class="feature-grid">
@@ -95,13 +95,21 @@
         <span class="card-label">Opportunity</span>
         <p><strong>How might we give the model and panels more room, while maintaining the way engineers read and adjust results today?</strong></p>
       </div>
-      <h3>Requirements I designed against</h3>
+      <h3>Requirements I addressed</h3>
       <ol>
         <li>A horizontal legend that frees space at the side of the viewport.</li>
         <li>Every current interaction keeps working: hover for values, drag to set the range, and the settings panel.</li>
         <li>Users can switch back to the vertical legend.</li>
         <li>The same value count and number formatting as today.</li>
       </ol>
+    </section>
+
+    <section id="design-specs">
+      <h2>Design specs</h2>
+      <p>In Figma, I designed every state of the horizontal legend and the edge cases it had to handle: the default bar, subranges, the variable and unit pickers, hover values, gradient styles, user-defined ranges, and results with two or more variables.</p>
+      <img class="fig" src="assets/discovery/legend-design-specs.webp" width="2000" height="1677" alt="Spec sheet of horizontal legend states: default, change variable, change variable option, change unit, and settings panel on the left; subrange, hover over model, toggle gradient style, user-defined range, and two or more variables on the right, with notes that the legend extends to fit all values" loading="lazy" />
+      <p class="caption">Legend states and edge cases from the Figma spec.</p>
+      <p>I then connected the Figma designs to Cursor, so the specs fed directly into an in-context prototype built inside Discovery, running on real simulation results.</p>
     </section>
 
     <section id="final-design">
@@ -133,7 +141,7 @@
 
     <section id="prototyping">
       <h2>Prototyping in the real software</h2>
-      <p>A legend is something you use, not just look at. You hover it, drag its range, and watch the colors on the model shift. Static frames cannot show these dynamic interactions.</p>
+      <p>Static frames cannot show the legend's dynamic interactions. You hover it, drag its range, and watch the colors on the model shift.</p>
       <p>I used Cursor to build the horizontal legend as a working prototype inside Discovery itself, on real simulation results. Reviewers could hover for values, drag the range, and rotate the legend back to vertical, all on a live model.</p>
       <p>Figma still holds the design system: the legend components, every state, and a spec sheet marked ready for development.</p>
       <p>The prototype is also the start of the real build. I implemented the legend in our component library and in Discovery for developers to harden.</p>
@@ -162,8 +170,8 @@
     <section id="reflection">
       <h2>Reflection ♡</h2>
       <p><strong>Change the layout, not the habits.</strong> The legend moved to a new place on the screen, but every interaction stayed the same. When a reviewer asked whether it "acts just like the previous legend," the answer was yes. That's why a big visual change landed easily.</p>
-      <p><strong>An exit makes change easier to accept.</strong> I didn't want to shock people with the change. The option to rotate back to vertical cost little to build, and it turned the most doubtful reviewer into a supporter.</p>
-      <p><strong>Close the loop in code.</strong> Each review question became a line in a pull request. Owning the build meant those answers didn't wait for a ticket queue.</p>
+      <p><strong>Providing original options makes change easier to accept.</strong> I didn't want to shock people with the change. The option to rotate back to vertical cost little to build, and it turned the most doubtful reviewer into a supporter.</p>
+      <p><strong>Complete the feedback loop in code.</strong> Each review question became a line in a pull request. Owning the build meant those answers didn't wait for a ticket queue.</p>
       <p><strong>Show it running.</strong> Because the legend ran in Discovery itself, the review moved past "does it look right" to focus, persistence, and reports. Those are the questions that decide whether it works in production.</p>
       <p class="caption">Thanks to the Discovery UX team, my manager, and the developers building this with me.</p>
     </section>
