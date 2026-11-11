@@ -493,12 +493,13 @@ main.cs { max-width: var(--page); }
 }
 .cs h3 { font-size: 24px; font-weight: 500; letter-spacing: -0.015em; margin: 48px 0 12px; line-height: 1.3; }
 .cs p { margin: 0 0 18px; line-height: 1.7; }
-.cs ul { margin: 0 0 18px; padding-left: 22px; line-height: 1.7; }
+.cs ul, .cs ol { margin: 0 0 18px; padding-left: 22px; line-height: 1.7; }
 .cs li { margin-bottom: 8px; }
 .cs .lede { font-size: 28px; line-height: 1.4; letter-spacing: -0.015em; }
 .cs .lede.accent { color: var(--text); }
 
-.cs img.fig {
+.cs img.fig,
+.cs video.fig {
   display: block;
   width: 100%;
   height: auto;
