@@ -69,7 +69,7 @@
     <section id="introduction">
       <h2>Introduction</h2>
       <p class="lede"><strong>I owned and shipped the new horizontal results legend for Ansys Discovery's UX 2.0 redesign.</strong></p>
-      <p>In Ansys Discovery, engineers run a simulation and read the results off a color scale. The results legend maps each color on the model to a value.</p>
+      <p>Ansys Discovery is 3D simulation software and an industry standard for engineers, used at more than 100 companies, including NVIDIA and AMD. Engineers run a simulation and read the results off a color scale. The results legend maps each color on the model to a value.</p>
       <p>The legend originally stood upright along the side of the viewport, under and next to the dock panels. The legend and the panels fought for the same space, and the legend sat apart from the results toolbar it works with.</p>
       <img class="fig" src="assets/discovery/legend-before.webp" width="1920" height="1098" alt="The original vertical legend on the right of the viewport, beside the docked Monitors panel" loading="lazy" />
       <p class="caption">Before: the vertical legend squeezed against the docked panels, away from the results toolbar.</p>
@@ -83,11 +83,11 @@
       <p class="caption">Legend references from other simulation tools.</p>
       <div class="feature-grid">
         <div class="card">
-          <span class="card-label">The legend competes with the panels</span>
+          <span class="card-label">The legend and panels fight for space</span>
           <p>A vertical legend claims the same side of the screen as the docked panels, so opening a panel crowds the result you're trying to read.</p>
         </div>
         <div class="card">
-          <span class="card-label">Discovery is mature</span>
+          <span class="card-label">Users have years of habits</span>
           <p>Long-time users have years of muscle memory. A new layout has to feel familiar on day one, with a way back.</p>
         </div>
       </div>
@@ -115,12 +115,12 @@
     <section id="final-design">
       <h2>Final design concept ✿</h2>
 
-      <h3>1. A legend that lies flat above the results toolbar</h3>
+      <h3>1. Moving it above the results toolbar</h3>
       <p>The legend runs across the bottom of the viewport, just above the results toolbar. The right side of the screen now belongs only to the docked panels. It's still draggable, so users can move it off whatever part of the model they're studying.</p>
       <video class="fig" src="assets/discovery/legend-move.mp4" autoplay loop muted playsinline aria-label="Dragging the horizontal legend to a new spot on the viewport"></video>
       <p class="caption">Still draggable: click and drag to move it.</p>
 
-      <h3>2. Nothing to relearn</h3>
+      <h3>2. Keeping every interaction the same</h3>
       <p>Every interaction from the original vertical legend carries over. The variable picker sits at the left end and opens upward, so it doesn't drop off the bottom of the screen.</p>
       <img class="fig" src="assets/discovery/legend-design-overview.webp" width="1480" height="550" alt="Design overview: variables open upward, units and settings on the right, subrange and hover value" loading="lazy" />
       <video class="fig" src="assets/discovery/legend-variables.mp4" autoplay loop muted playsinline aria-label="Switching result variables from the upward-opening dropdowns"></video>
@@ -130,17 +130,17 @@
       <video class="fig" src="assets/discovery/legend-range.mp4" autoplay loop muted playsinline aria-label="Dragging the range handles along the horizontal bar"></video>
       <p class="caption">Click and drag to change the range.</p>
 
-      <h3>3. Rotate it back</h3>
+      <h3>3. An option to switch back to vertical</h3>
       <p>A rotate button in the settings panel turns the legend back to vertical. Horizontal is the default in UX 2.0, but nobody is forced into it. This choice is what convinced reviewers who doubted a horizontal legend at first.</p>
       <video class="fig" src="assets/discovery/legend-rotate.mp4" autoplay loop muted playsinline aria-label="Rotating the legend from horizontal to vertical and back"></video>
       <p class="caption">Rotated back to vertical from the settings panel.</p>
 
-      <h3>4. The same numbers, read the same way</h3>
+      <h3>4. Same values and formatting</h3>
       <p>The legend shows seven values, like the current one. Values follow the user's unit and precision settings and switch to scientific notation past about five digits, so long numbers still fit across the bar.</p>
     </section>
 
     <section id="prototyping">
-      <h2>Prototyping in the real software</h2>
+      <h2>Prototyping in Discovery</h2>
       <p>Static frames cannot show the legend's dynamic interactions. You hover it, drag its range, and watch the colors on the model shift.</p>
       <p>I used Cursor to build the horizontal legend as a working prototype inside Discovery itself, on real simulation results. Reviewers could hover for values, drag the range, and rotate the legend back to vertical, all on a live model.</p>
       <p>Figma still holds the design system: the legend components, every state, and a spec sheet marked ready for development.</p>
@@ -149,13 +149,13 @@
     </section>
 
     <section id="feedback">
-      <h2>How the prototype shaped feedback</h2>
+      <h2>Feedback</h2>
       <p>I demoed the legend live for leadership, and the reception was very positive. Because reviewers saw it working in Discovery, the questions were about behavior, not looks.</p>
       <ul>
-        <li><strong>Doubts were resolved.</strong> One reviewer who doubted a horizontal legend going in said it looked really nice. The option to rotate back to vertical is what sold it, and others were glad both stayed available.</li>
-        <li><strong>It settled the default.</strong> My manager confirmed horizontal will be the UX 2.0 default.</li>
-        <li><strong>Real use raised real edge cases.</strong> Seeing it next to the results toolbar, a reviewer asked what happens when a toolbar flyout covers the legend. The group agreed covering it is correct. This feedback was addressed in hardening.</li>
-        <li><strong>The questions went past the screen.</strong> How should the legend appear in reports and screenshots? Should orientation persist per session, per project, or always? Should users set their own default? Those are product decisions a mockup wouldn't have raised.</li>
+        <li><strong>Unsure reviewers came around.</strong> One reviewer who doubted a horizontal legend going in said it looked really nice. The option to rotate back to vertical is what sold it, and others were glad both stayed available.</li>
+        <li><strong>Horizontal became the default.</strong> My manager confirmed horizontal will be the UX 2.0 default.</li>
+        <li><strong>Reviewers found edge cases.</strong> Seeing it next to the results toolbar, a reviewer asked what happens when a toolbar flyout covers the legend. The group agreed covering it is correct. This feedback was addressed in hardening.</li>
+        <li><strong>Reviewers raised bigger product questions.</strong> How should the legend appear in reports and screenshots? Should orientation persist per session, per project, or always? Should users set their own default? Those are product decisions a mockup wouldn't have raised.</li>
       </ul>
       <p>It was a great starting point to evolve into something production-ready.</p>
       <video class="fig" src="assets/discovery/legend-flyout.mp4" autoplay loop muted playsinline aria-label="A results-toolbar flyout opening over the legend"></video>
@@ -163,16 +163,16 @@
     </section>
 
     <section id="pull-requests">
-      <h2>From feedback to pull requests ↳</h2>
+      <h2>Shipping it ↳</h2>
       <p>I turned the review into two pull requests I shipped myself: one in the component library, and one in Discovery. Every open question from the review has an answer in code. Building it in full context also surfaced polish nobody had asked about.</p>
     </section>
 
     <section id="reflection">
       <h2>Reflection ♡</h2>
-      <p><strong>Change the layout, not the habits.</strong> The legend moved to a new place on the screen, but every interaction stayed the same. When a reviewer asked whether it "acts just like the previous legend," the answer was yes. That's why a big visual change landed easily.</p>
-      <p><strong>Providing original options makes change easier to accept.</strong> I didn't want to shock people with the change. The option to rotate back to vertical cost little to build, and it turned the most doubtful reviewer into a supporter.</p>
-      <p><strong>Complete the feedback loop in code.</strong> Each review question became a line in a pull request. Owning the build meant those answers didn't wait for a ticket queue.</p>
-      <p><strong>Show it running.</strong> Because the legend ran in Discovery itself, the review moved past "does it look right" to focus, persistence, and reports. Those are the questions that decide whether it works in production.</p>
+      <p><strong>Keeping interactions familiar made a big change easier.</strong> The legend moved to a new place on the screen, but every interaction stayed the same. When a reviewer asked whether it "acts just like the previous legend," the answer was yes. That's why a big visual change landed easily.</p>
+      <p><strong>Keeping the original option helped people accept the change.</strong> I didn't want to shock people with the change. The option to rotate back to vertical cost little to build, and it turned the most doubtful reviewer into a supporter.</p>
+      <p><strong>Building it myself meant feedback got addressed quickly.</strong> Each review question became a line in a pull request. Owning the build meant those answers didn't wait for a ticket queue.</p>
+      <p><strong>A working prototype led to better feedback.</strong> Because the legend ran in Discovery itself, the review moved past "does it look right" to focus, persistence, and reports. Those are the questions that decide whether it works in production.</p>
       <p class="caption">Thanks to the Discovery UX team, my manager, and the developers building this with me.</p>
     </section>
 
