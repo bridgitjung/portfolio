@@ -123,19 +123,64 @@
       <h3>2. Keeping every interaction the same</h3>
       <p>Every interaction from the original vertical legend carries over. The variable picker sits at the left end and opens upward, so it doesn't drop off the bottom of the screen.</p>
       <img class="fig" src="assets/discovery/legend-design-overview.webp" width="1480" height="550" alt="Design overview: variables open upward, units and settings on the right, subrange and hover value" loading="lazy" />
-      <video class="fig" src="assets/discovery/legend-variables.mp4" autoplay loop muted playsinline aria-label="Switching result variables from the upward-opening dropdowns"></video>
-      <p class="caption">Variables on the left open upward.</p>
-      <video class="fig" src="assets/discovery/legend-hover.mp4" autoplay loop muted playsinline aria-label="Hovering over the model shows its value on the legend"></video>
-      <p class="caption">Hover over the model to see its value on the legend.</p>
-      <video class="fig" src="assets/discovery/legend-subrange.mp4" autoplay loop muted playsinline aria-label="Dragging the subrange handle under the legend bar"></video>
-      <p class="caption">Click and drag under the bar to set a subrange.</p>
-      <video class="fig" src="assets/discovery/legend-range.mp4" autoplay loop muted playsinline aria-label="Typing new end values on the legend, with the model's colors updating to match"></video>
-      <p class="caption">Set your own range, and the model's colors update to match.</p>
+      <div class="compare">
+        <figure>
+          <figcaption>before</figcaption>
+          <video src="assets/discovery/before-variables.mp4" autoplay loop muted playsinline aria-label="Switching result variables from the dropdowns above the original vertical legend"></video>
+        </figure>
+        <figure>
+          <figcaption>after</figcaption>
+          <video src="assets/discovery/legend-variables.mp4" autoplay loop muted playsinline aria-label="Switching result variables from the upward-opening dropdowns"></video>
+        </figure>
+      </div>
+      <p class="caption">Variables move from the top of the vertical legend to the left end, opening upward.</p>
+      <div class="compare">
+        <figure>
+          <figcaption>before</figcaption>
+          <video src="assets/discovery/before-hover.mp4" autoplay loop muted playsinline aria-label="Hovering over the model shows its value on the original vertical legend"></video>
+        </figure>
+        <figure>
+          <figcaption>after</figcaption>
+          <video src="assets/discovery/legend-hover.mp4" autoplay loop muted playsinline aria-label="Hovering over the model shows its value on the legend"></video>
+        </figure>
+      </div>
+      <p class="caption">Hover over the model to see its value on the legend, the same as before.</p>
+      <div class="compare">
+        <figure>
+          <figcaption>before</figcaption>
+          <video src="assets/discovery/before-subrange.mp4" autoplay loop muted playsinline aria-label="Dragging the subrange handle beside the original vertical legend"></video>
+        </figure>
+        <figure>
+          <figcaption>after</figcaption>
+          <video src="assets/discovery/legend-subrange.mp4" autoplay loop muted playsinline aria-label="Dragging the subrange handle under the legend bar"></video>
+        </figure>
+      </div>
+      <p class="caption">The subrange handle moves from beside the bar to under it, and works the same way.</p>
+      <div class="compare">
+        <figure>
+          <figcaption>before</figcaption>
+          <video src="assets/discovery/before-range.mp4" autoplay loop muted playsinline aria-label="Typing new end values on the original vertical legend"></video>
+        </figure>
+        <figure>
+          <figcaption>after</figcaption>
+          <video src="assets/discovery/legend-range.mp4" autoplay loop muted playsinline aria-label="Typing new end values on the legend, with the model's colors updating to match"></video>
+        </figure>
+      </div>
+      <p class="caption">Set your own range, and the model's colors update to match, the same as before.</p>
 
       <h3>3. Option to switch back to the original vertical</h3>
       <p>A rotate button in the settings panel turns the legend back to vertical. Horizontal is the default in UX 2.0, but nobody is forced into it. This choice is what convinced reviewers who doubted a horizontal legend at first.</p>
-      <video class="fig" src="assets/discovery/legend-rotate.mp4" autoplay loop muted playsinline aria-label="Rotating the legend from horizontal to vertical and back"></video>
-      <p class="caption">Rotated back to vertical from the settings panel.</p>
+      <div class="compare">
+        <figure>
+          <figcaption>before</figcaption>
+          <video src="assets/discovery/before-settings.mp4" autoplay loop muted playsinline aria-label="Opening the settings panel on the original vertical legend"></video>
+        </figure>
+        <figure>
+          <figcaption>after</figcaption>
+          <video src="assets/discovery/legend-rotate.mp4" autoplay loop muted playsinline aria-label="Rotating the legend from horizontal to vertical and back"></video>
+        </figure>
+      </div>
+      <p class="caption">The same settings panel, now with a button to rotate the legend back to vertical.</p>
 
       <h3>4. Same values and formatting</h3>
       <p>The legend shows seven values, like the current one. Values follow the user's unit and precision settings and switch to scientific notation past about five digits, so long numbers still fit across the bar.</p>

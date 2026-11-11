@@ -514,6 +514,13 @@ main.cs { max-width: var(--page); }
 .fig-row.thirds { grid-template-columns: repeat(3, 1fr); }
 .fig-row.side-by-side { grid-template-columns: 1fr 1fr; }
 
+/* before / after video pairs on case studies */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 8px; align-items: start; }
+.compare figure { margin: 0; min-width: 0; }
+.compare figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: lowercase; color: var(--muted); margin: 0 0 8px; }
+.compare video { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--card); }
+@media (max-width: 600px) { .compare { grid-template-columns: 1fr; } }
+
 .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
 /* consecutive cards sit closer together than they do to surrounding text */
 .card:has(+ .card) { margin-bottom: 10px; }
