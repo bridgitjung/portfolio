@@ -759,8 +759,8 @@ main.cs { max-width: var(--page); }
   .topnav { gap: 20px; }
   /* phones: links fold into a menu under the hamburger (js/navline.js) */
   .nav-toggle { display: flex; }
-  .topbar.has-menu .topnav { display: none; }
-  .topbar.menu-open .topnav {
+  /* the menu panel stays laid out and is clipped away; opening slides it down */
+  .topbar.has-menu .topnav {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -772,8 +772,25 @@ main.cs { max-width: var(--page); }
     background: var(--bg);
     border-bottom: 1px solid var(--line);
     font-size: 16px;
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+    transition: clip-path 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.35s;
   }
-  .topbar.menu-open .topnav a { padding: 12px 0; }
+  .topbar.has-menu .topnav a {
+    padding: 12px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .topbar.menu-open .topnav {
+    clip-path: inset(0 0 -1px 0);
+    visibility: visible;
+    transition: clip-path 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+  }
+  .topbar.menu-open .topnav a { opacity: 1; transform: none; }
+  .topbar.menu-open .topnav a:nth-child(2) { transition-delay: 0.03s; }
+  .topbar.menu-open .topnav a:nth-child(3) { transition-delay: 0.06s; }
+  .topbar.menu-open .topnav a:nth-child(4) { transition-delay: 0.09s; }
   .topbar.has-menu .nav-line { display: none; }
   .topbar.has-menu .topnav a[aria-current="page"] { text-decoration: underline; }
   .hero { padding: 24px 0 48px; }
@@ -801,3 +818,8 @@ main.cs { max-width: var(--page); }
   .back-to-top { right: 16px; bottom: 16px; }
 }
 
+/* phones: open the menu without the slide for people who prefer less motion */
+@media (max-width: 860px) and (prefers-reduced-motion: reduce) {
+  .topbar.has-menu .topnav,
+  .topbar.has-menu .topnav a { transition: none !important; transform: none; }
+}
