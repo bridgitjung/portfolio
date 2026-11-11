@@ -70,7 +70,7 @@ function gatePage(wrong) {
     <div class="gate">
       <p class="cs-kicker">Ansys Discovery:</p>
       <h1>This case study is password protected</h1>
-      <p>It shows work in progress on enterprise software. Enter the password to view it.</p>
+      <p>Enter the password to view it.</p>
       <form method="post" action="/discovery-unlock">
         <label class="sr-only" for="pw">Password</label>
         <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus />
