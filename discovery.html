@@ -104,12 +104,14 @@
       </ol>
     </section>
 
-    <section id="design-specs">
-      <h2>Design specs</h2>
+    <section id="specs-and-prototype">
+      <h2>Design specs + in-context prototype</h2>
       <p>In Figma, I designed every state of the horizontal legend and the edge cases it had to handle: the default bar, subranges, the variable and unit pickers, hover values, gradient styles, user-defined ranges, and results with two or more variables.</p>
       <img class="fig" src="assets/discovery/legend-design-specs.webp" width="2000" height="1677" alt="Spec sheet of horizontal legend states: default, change variable, change variable option, change unit, and settings panel on the left; subrange, hover over model, toggle gradient style, user-defined range, and two or more variables on the right, with notes that the legend extends to fit all values" loading="lazy" />
       <p class="caption">Legend states and edge cases from the Figma spec.</p>
+      <p>Static frames cannot show the legend's dynamic interactions. You hover it, drag its range, and watch the colors on the model shift.</p>
       <p>I then connected the Figma designs to Cursor, so the specs fed directly into an in-context prototype built inside Discovery, running on real simulation results.</p>
+      <p>I used Cursor to build the horizontal legend as a working prototype inside Discovery itself, on real simulation results. Reviewers could hover for values, drag the range, and rotate the legend back to vertical, all on a live model.</p>
     </section>
 
     <section id="final-design">
@@ -177,15 +179,6 @@
       <p>The legend shows seven values, like the current one. Values follow the user's unit and precision settings and switch to scientific notation past about five digits, so long numbers still fit across the bar.</p>
     </section>
 
-    <section id="prototyping">
-      <h2>Prototyping in Discovery</h2>
-      <p>Static frames cannot show the legend's dynamic interactions. You hover it, drag its range, and watch the colors on the model shift.</p>
-      <p>I used Cursor to build the horizontal legend as a working prototype inside Discovery itself, on real simulation results. Reviewers could hover for values, drag the range, and rotate the legend back to vertical, all on a live model.</p>
-      <p>Figma still holds the design system: the legend components, every state, and a spec sheet marked ready for development.</p>
-      <p>The prototype is also the start of the real build. I implemented the legend in our component library and in Discovery for developers to harden.</p>
-      <p>At the end, I wrote up the changes, the reasons behind them, and the pitfalls I hit as a skill file for developers. That way, the next person or agent to touch the legend starts from what I learned.</p>
-    </section>
-
     <section id="feedback">
       <h2>Feedback</h2>
       <p>I demoed the legend live for leadership, and the reception was very positive. Because reviewers saw it working in Discovery, the questions were about behavior, not looks.</p>
@@ -208,7 +201,7 @@
     <section id="reflection">
       <h2>Reflection</h2>
       <p><strong>Keeping interactions familiar made a big change easier.</strong> The legend moved to a new place on the screen, but every interaction stayed the same. When a reviewer asked whether it "acts just like the previous legend," the answer was yes. That's why a big visual change landed easily.</p>
-      <p><strong>Keeping the original option helped people accept the change.</strong> I didn't want to shock people with the change. The option to rotate back to vertical cost little to build, and it turned the most doubtful reviewer into a supporter.</p>
+      <p><strong>Keeping original options helped people accept change.</strong> I didn't want to shock people with the change. The option to rotate back to vertical cost little to build, and it turned the most doubtful reviewer into a supporter.</p>
       <p><strong>Building it myself meant feedback got addressed quickly.</strong> Each review question became a line in a pull request. Owning the build meant those answers didn't wait for a ticket queue.</p>
       <p><strong>A working prototype led to better feedback.</strong> Because the legend ran in Discovery itself, the review moved past "does it look right" to focus, persistence, and reports. Those are the questions that decide whether it works in production.</p>
       <p class="caption">Thanks to the Discovery UX team, my manager, and the developers building this with me.</p>
