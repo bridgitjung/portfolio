@@ -40,7 +40,7 @@ function gatePage(wrong) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
-  <link rel="icon" type="image/png" href="/assets/tiles/logo-tile.png" />
+  <link rel="icon" type="image/png" href="/assets/brand/favicon-rounded.png" />
   <style>
     .gate { max-width: 440px; margin: 0 auto; padding: 12vh 0 80px; }
     .gate h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 12px; }
