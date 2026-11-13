@@ -515,7 +515,7 @@ main.cs { max-width: var(--page); }
 .fig-row.side-by-side { grid-template-columns: 1fr 1fr; }
 
 /* before / after video pairs on case studies */
-.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 8px; align-items: start; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 16px; align-items: start; }
 .compare figure { margin: 0; min-width: 0; }
 .compare figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: lowercase; color: var(--muted); margin: 0 0 8px; }
 .compare video { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--card); }
