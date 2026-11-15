@@ -73,7 +73,7 @@
       <p>Ansys Discovery is refreshing and optimizing its interface with the new UX 2.0 redesign. The legend originally stood next to the docked panels on the right side of the interface. The legend and the panels fought for the same space, and the legend sat apart from the new UX 2.0 results toolbar it works with.</p>
       <img class="fig" src="assets/discovery/legend-original.webp" width="2000" height="1188" alt="Ansys Discovery with the original vertical legend on the right of the viewport beside the docked Monitors panel, and the UX 2.0 results toolbar at the bottom center" loading="lazy" />
       <p class="caption">Before: the original vertical legend sat against the docked panels, away from the UX 2.0 results toolbar.</p>
-      <p>As part of the UX 2.0 redesign, I owned the legend end to end. I changed its orientation so it sits above the results toolbar, centered where it's easier for users to reach, and the side of the screen is free for the panels again.</p>
+      <p>As part of the UX 2.0 redesign, I owned the legend end to end and created an in-software prototype for developers to harden. I changed its orientation so it sits above the results toolbar, centered where it's easier for users to reach, and the side of the screen is free for the panels again.</p>
     </section>
 
     <section id="key-insights">
@@ -185,18 +185,17 @@
       <p>I demoed the legend live for leadership, and the reception was very positive. Because reviewers saw it working in Discovery, the questions were about behavior, not looks.</p>
       <ul>
         <li><strong>Doubtful reviewers came around.</strong> One reviewer who doubted a horizontal legend going in said it looked really nice. The option to rotate back to vertical is what sold it, and others were glad both stayed available.</li>
-        <li><strong>Horizontal became the default.</strong> My manager confirmed horizontal will be the UX 2.0 default.</li>
+        <li><strong>Horizontal became the default.</strong> We confirmed that a horizontal legend will be the UX 2.0 default after seeing how well it worked with the interface.</li>
         <li><strong>Reviewers found edge cases.</strong> Seeing it next to the results toolbar, a reviewer asked what happens when a toolbar flyout covers the legend. The group agreed covering it is correct. This feedback was addressed in hardening.</li>
         <li><strong>Reviewers raised bigger product questions.</strong> How should the legend appear in reports and screenshots? Should orientation persist per session, per project, or always? Should users set their own default? Those are product decisions a mockup wouldn't have raised.</li>
       </ul>
-      <p>It was a great starting point to evolve into something production-ready.</p>
       <video class="fig" src="assets/discovery/legend-flyout.mp4" autoplay loop muted playsinline aria-label="A results-toolbar flyout opening over the legend"></video>
       <p class="caption">A toolbar flyout covers the legend, which the group agreed is correct.</p>
     </section>
 
     <section id="pull-requests">
       <h2>Shipping it</h2>
-      <p>I turned the review into two pull requests I shipped myself: one in the component library, and one in Discovery. Every open question from the review has an answer in code. Building it in full context also surfaced polish nobody had asked about. These shipped PRs served as a good foundation for developers to harden.</p>
+      <p>I took feedback from the review and shipped two pull requests: one in the component library, and one in Discovery. Every open question from the review has an answer in code, closing the feedback loop. Building it in full context also surfaced design polish nobody had brought up before. These shipped PRs served as a good foundation for developers to harden.</p>
     </section>
 
     <section id="reflection">
